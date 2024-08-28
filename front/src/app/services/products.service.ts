@@ -12,7 +12,8 @@ export class ProductsService {
 
 
   public getProducts(){
-    return this.http.get<Product[]>('http://localhost:4999/products/', {headers:{
+    return this.http.get<Product[]>('http://localhost:4999/products/', {
+      headers:{
       "auth":"token"
     }
   });

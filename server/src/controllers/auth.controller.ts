@@ -46,14 +46,13 @@ export class AuthController{
                 'text':'Įvestas neteisingas slaptažodis arba el. pašto adresas'
             });
         }
-        if (process.env.TOKEN_SECRET!=null){
-            dotenv.config();
+        
             let token=jwt.sign(
                 {
                     id:user.id,
-                    type:user.type
+                    
                 },
-                process.env.TOKEN_SECRET,
+                "kk59444gsd4r9+-eyery64er94ty9wer49erh4",
                 {
                     expiresIn:'2 days'
                 });
@@ -67,8 +66,7 @@ export class AuthController{
                 'name':user.name,
                 'email':user.email,
                 'token':token,
-                'type':user.type,
-                'img':user.img
+             
             });
         }
 
@@ -76,4 +74,3 @@ export class AuthController{
 
     }
 
-}
