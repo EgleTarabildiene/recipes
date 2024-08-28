@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-header">Receptu sąrašas</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nr</th>
+                    <th>Pavadinimas</th>
+                    <th>Sudedamosios dalys</th>
+                    <th>Kiekis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.part}}</td>
+                    <td>{{product.count}}</td>
+                    <td>
+                        <a class="btn btn-success" [routerLink]="['/products',product.id]">Redaguoti</a>&nbsp;&nbsp;
+                        <button class="btn btn-danger" (click)="deleteProduct(product.id!)">Ištrinti</button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
