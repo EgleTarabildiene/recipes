@@ -12,13 +12,10 @@ export class ProductsService {
 
 
   public getProducts(){
-    return this.http.get<Product[]>('http://localhost:4999/products/', {
-      headers:{
-      "auth":"token"
-    }
-  });
+    return this.http.get<Product[]>('http://localhost:4999/products/');
   }
  
+  
    public getFiltredProducts(filter:String){
     return this.http.get<Product[]>('http://localhost:4999/products/filter/'+filter);
   }

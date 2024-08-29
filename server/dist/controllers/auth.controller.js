@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
 const connect_1 = require("../db/connect");
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const dotenv_1 = __importDefault(require("dotenv"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 class AuthController {
     static signin(req, res) {
@@ -53,19 +54,24 @@ class AuthController {
                     'text': 'Įvestas neteisingas slaptažodis arba el. pašto adresas'
                 });
             }
-            let token = jsonwebtoken_1.default.sign({
-                id: user.id,
-            }, "kk59444gsd4r9+-eyery64er94ty9wer49erh4", {
-                expiresIn: '2 days'
-            });
-            //const k=jwt.verify("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzE4MjY0Njk3LCJleHAiOjE3MTg0Mzc0OTd9.2CXay21b6mJVcGTRK_MejAjP1f53jmjvx5wpGtqD_UU","kk59444gsd4r9+-eyery64er94ty9wer49erh4");    
-            //console.log(k);
-            res.json({
-                'id': user.id,
-                'name': user.name,
-                'email': user.email,
-                'token': token,
-            });
+            if (process.env.TOKEN_SECRET != null) {
+                dotenv_1.default.config();
+                let token = jsonwebtoken_1.default.sign({
+                    id: user.id,
+                    type: user.type
+                }, process.env.TOKEN_SECRET, {
+                    expiresIn: '2 days'
+                });
+                //const k=jwt.verify("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzE4MjY0Njk3LCJleHAiOjE3MTg0Mzc0OTd9.2CXay21b6mJVcGTRK_MejAjP1f53jmjvx5wpGtqD_UU","kk59444gsd4r9+-eyery64er94ty9wer49erh4");    
+                //console.log(k);
+                res.json({
+                    'id': user.id,
+                    'name': user.name,
+                    'email': user.email,
+                    'token': token,
+                    'type': user.type,
+                });
+            }
         });
     }
 }

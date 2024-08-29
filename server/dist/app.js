@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const cors_middleware_1 = require("./middlewares/cors.middleware");
 const products_router_1 = require("./routes/products.router");
 const auth_router_1 = require("./routes/auth.router");
+const user_router_1 = require("./routes/user.router");
 const app = (0, express_1.default)();
 exports.app = app;
 //Sutvarkomi duomenys jei buvo siusta forma
@@ -18,3 +19,4 @@ app.use(express_1.default.json());
 app.use(cors_middleware_1.corsHeaders);
 app.use('/products', products_router_1.productsRouter);
 app.use('/auth', auth_router_1.authRouter);
+app.use('/users', user_router_1.userRouter);

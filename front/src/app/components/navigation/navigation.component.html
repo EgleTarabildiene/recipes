@@ -10,11 +10,13 @@
                 <li class="nav-item">
                     <a class="nav-link " aria-current="page" routerLink="/products/list">Receptu sąrašas</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="authService.canEdit()">
                     <a class="nav-link " aria-current="page" routerLink="/products/new">Pridėti naują recepta</a>
                 </li>
 
-
+                <li class="nav-item" *ngIf="authService.canEditUsers()">
+                    <a class="nav-link" routerLink="users/list">Vartotojų sąrašas</a>
+                </li>
 
 
 
