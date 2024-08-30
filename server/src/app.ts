@@ -27,7 +27,7 @@ app.use(corsHeaders);
 
 app.use('/products', productsRouter);
 app.use('/auth', authRouter);
-app.use('/users', userRouter);
+app.use("/users", userRouter);
 
 
 export {app};

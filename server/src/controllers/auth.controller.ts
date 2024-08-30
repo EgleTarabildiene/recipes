@@ -1,8 +1,8 @@
 import { pool } from "../db/connect";
 import bcrypt from "bcrypt";
-import dotenv from "dotenv";
 import { User } from "../models/user";
-import jwt from "jsonwebtoken"
+import  jwt  from "jsonwebtoken";
+import dotenv from "dotenv";
 
 export class AuthController{
     
@@ -46,7 +46,7 @@ export class AuthController{
                 'text':'Įvestas neteisingas slaptažodis arba el. pašto adresas'
             });
         }
-            if (process.env.TOKEN_SECRET!=null){
+        if (process.env.TOKEN_SECRET!=null){
             dotenv.config();
             let token=jwt.sign(
                 {
@@ -67,8 +67,7 @@ export class AuthController{
                 'name':user.name,
                 'email':user.email,
                 'token':token,
-                'type':user.type,
-               
+                'type':user.type
             });
         }
 

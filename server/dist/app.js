@@ -19,4 +19,4 @@ app.use(express_1.default.json());
 app.use(cors_middleware_1.corsHeaders);
 app.use('/products', products_router_1.productsRouter);
 app.use('/auth', auth_router_1.authRouter);
-app.use('/users', user_router_1.userRouter);
+app.use("/users", user_router_1.userRouter);

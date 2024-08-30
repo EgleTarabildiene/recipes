@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
 const connect_1 = require("../db/connect");
 const bcrypt_1 = __importDefault(require("bcrypt"));
-const dotenv_1 = __importDefault(require("dotenv"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const dotenv_1 = __importDefault(require("dotenv"));
 class AuthController {
     static signin(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -69,7 +69,7 @@ class AuthController {
                     'name': user.name,
                     'email': user.email,
                     'token': token,
-                    'type': user.type,
+                    'type': user.type
                 });
             }
         });

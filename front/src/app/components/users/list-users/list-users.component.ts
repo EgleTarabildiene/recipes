@@ -7,7 +7,7 @@ import { UsersService } from '../../../services/users.service';
 @Component({
   selector: 'app-list-users',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, CommonModule],
   templateUrl: './list-users.component.html',
   styleUrl: './list-users.component.css'
 })
