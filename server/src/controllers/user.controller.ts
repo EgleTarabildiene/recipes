@@ -74,4 +74,23 @@ export class UserController{
             success:true
         });
     }
+
+
+
+
+
+
+
+
+
+    static async updateProfile(req:any, res:any){
+        
+
+
+        console.log("Vartotojo profilis atnaujintas")
+
+        res.json({
+            success:true
+        });
+    }
 }

@@ -86,5 +86,13 @@ class UserController {
             });
         });
     }
+    static updateProfile(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log("Vartotojo profilis atnaujintas");
+            res.json({
+                success: true
+            });
+        });
+    }
 }
 exports.UserController = UserController;

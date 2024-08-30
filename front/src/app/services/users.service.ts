@@ -32,6 +32,20 @@ export class UsersService {
   public updateUser(user:User){
     return this.http.put('http://localhost:4999/users/'+user.id, user);
   }
+
+
+  public updateUserAndPhoto(user:User, file:any){
+    const postUser=new FormData();
+    postUser.append('name', user.name!);
+    postUser.append('email', user.email!);
+    postUser.append('password', user.password!);
+    postUser.append('image',file);
+    return this.http.post('http://localhost:4999/users/'+user.id, postUser);
+
+  }
+
+
+
   public deleteUser(id:number){
     return this.http.delete('http://localhost:4999/users/'+id);
   }
