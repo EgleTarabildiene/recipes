@@ -20,7 +20,9 @@ const storageProfileImages = multer_1.default.diskStorage({
         cb(null, './img');
     },
     filename: (req, file, cb) => {
-        cb(null, 'pav.jpg');
+        const userId = req.params.id;
+        const fileName = "p_" + userId + "_" + Date.now() + ".jpg";
+        cb(null, fileName);
     }
 });
 userRouter.post("/:id", auth_middleware_1.authMiddleware, (0, multer_1.default)({ storage: storageProfileImages }).single('image'), user_controller_1.UserController.updateProfile);

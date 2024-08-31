@@ -31,6 +31,48 @@ export class UserController{
         }
     }
 
+
+    static async updateUserRecord(id:any, email:any, name:any, password:any, type:any, fileURL:any){
+        if (password!=''){
+            const passwordHash=await bcrypt.hash(password, 12);
+
+            await pool.query("UPDATE users SET email=?, name=?, password=? WHERE id=? ",[
+                email,
+                name,
+                passwordHash,
+                id
+            ]);
+        }else{
+            await pool.query("UPDATE users SET email=?, name=? WHERE id=? ",[
+                email,
+                name,
+                id
+            ]);
+        }
+
+        if (type!=null){
+            await pool.query("UPDATE users SET type=? WHERE id=? ",[
+                type,
+                id
+            ]);
+        }
+
+        if (fileURL!=null){
+            //Pasiimame buvusią informaciją iš DB
+           
+            await pool.query("UPDATE users SET img=? WHERE id=? ",[
+                fileURL,
+                id
+            ]);
+        }
+    }
+
+
+
+
+
+
+
     static async update(req:any, res:any){
         //Redaguojamo vartotojo ID
         const userId=req.params.id;
@@ -65,8 +107,9 @@ export class UserController{
         res.json({
             success:true
         });
+}
 
-    }
+
 
     static async delete(req:any, res:any){
         await pool.query("DELETE FROM users WHERE id=?",[req.params.id]);
@@ -78,17 +121,16 @@ export class UserController{
 
 
 
-
-
-
-
-
     static async updateProfile(req:any, res:any){
-        
+        const userId=req.params.id;
 
 
         console.log("Vartotojo profilis atnaujintas")
+        console.log(req.body);
 
+        const url=req.protocol+"://"+req.get("host")+"/img/"+req.file.filename ;
+
+        UserController.updateUserRecord(userId, req.body.email, req.body.name, req.body.password, null, url );
         res.json({
             success:true
         });

@@ -44,6 +44,39 @@ class UserController {
             }
         });
     }
+    static updateUserRecord(id, email, name, password, type, fileURL) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (password != '') {
+                const passwordHash = yield bcrypt_1.default.hash(password, 12);
+                yield connect_1.pool.query("UPDATE users SET email=?, name=?, password=? WHERE id=? ", [
+                    email,
+                    name,
+                    passwordHash,
+                    id
+                ]);
+            }
+            else {
+                yield connect_1.pool.query("UPDATE users SET email=?, name=? WHERE id=? ", [
+                    email,
+                    name,
+                    id
+                ]);
+            }
+            if (type != null) {
+                yield connect_1.pool.query("UPDATE users SET type=? WHERE id=? ", [
+                    type,
+                    id
+                ]);
+            }
+            if (fileURL != null) {
+                //Pasiimame buvusią informaciją iš DB
+                yield connect_1.pool.query("UPDATE users SET img=? WHERE id=? ", [
+                    fileURL,
+                    id
+                ]);
+            }
+        });
+    }
     static update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //Redaguojamo vartotojo ID
@@ -88,7 +121,11 @@ class UserController {
     }
     static updateProfile(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            const userId = req.params.id;
             console.log("Vartotojo profilis atnaujintas");
+            console.log(req.body);
+            const url = req.protocol + "://" + req.get("host") + "/img/" + req.file.filename;
+            UserController.updateUserRecord(userId, req.body.email, req.body.name, req.body.password, null, url);
             res.json({
                 success: true
             });

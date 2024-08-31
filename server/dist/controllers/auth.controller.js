@@ -69,7 +69,8 @@ class AuthController {
                     'name': user.name,
                     'email': user.email,
                     'token': token,
-                    'type': user.type
+                    'type': user.type,
+                    'img': user.img
                 });
             }
         });

@@ -19,8 +19,9 @@ const storageProfileImages=multer.diskStorage({
 
     },
     filename: (req, file, cb)=>{
-     
-        cb(null, 'pav.jpg');
+        const userId=req.params.id;
+        const fileName="p_"+userId+"_"+Date.now()+".jpg";
+        cb(null, fileName);
 
     }
 })
