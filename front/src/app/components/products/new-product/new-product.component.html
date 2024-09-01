@@ -18,3 +18,55 @@
 
     </div>
 </div>
+
+
+
+
+
+
+<!--<div class="card mt-3">
+    <div class="card-header">Pridėti naują receptą</div>
+    <div class="card-body">
+        <form id="ngForm" (ngSubmit)="productSubmit(f)" #f="ngForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Pavadinimas</label>
+                <input type="text" id="name" class="form-control" name="name" ngModel minlength="2" maxlength="64" required>
+            </div>
+            <hr>
+        </form>
+        <div class="row">
+            <div class="col-md-5">
+                <label for="part" class="form-label">Sudetis</label>
+                <input type="text" id="part" class="form-control" name="part" [(ngModel)]="part">
+            </div>
+            <div class="col-md-5">
+                <label for="count" class="form-label">Kiekis</label>
+                <input type="number" id="count" class="form-control" name="count" [(ngModel)]="count">
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+                <button type="button" class="btn btn-success" (click)="addProductToOrder()">Pridėti</button>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Pavadinimas</th>
+                            <th>Kiekis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let orderProduct of orderProducts; let i = index;">
+                            <td>{{ orderProduct.part }}</td>
+                            <td>{{ orderProduct.count }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-success mt-5" type="submit" form="ngForm">Pridėti</button>
+        </div>
+    </div>
+</div> -->

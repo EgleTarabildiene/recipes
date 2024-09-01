@@ -34,7 +34,7 @@ export class ProfileComponent {
           password:"",
           image:null,
         });
-        this.profileForm.updateValueAndValidity();;
+        this.profileForm.updateValueAndValidity();
       });
     }
   }

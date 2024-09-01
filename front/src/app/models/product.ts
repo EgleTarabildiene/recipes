@@ -4,4 +4,3 @@ export interface Product {
     part:string;
     count:string;
 }
-

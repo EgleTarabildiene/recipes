@@ -1,19 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { ProductsService } from '../../../services/products.service';
 import { Router } from '@angular/router';
 import { ErrorComponent } from '../../helper/error/error.component';
+import { Product } from '../../../models/product';
 
 @Component({
   selector: 'app-new-product',
   standalone: true,
-  imports: [CommonModule, FormsModule, ErrorComponent],
+  imports: [CommonModule, FormsModule, ErrorComponent, ReactiveFormsModule],
   templateUrl: './new-product.component.html',
   styleUrl: './new-product.component.css'
 })
 export class NewProductComponent {
-
   public isError=false;
   public errorText="";
 

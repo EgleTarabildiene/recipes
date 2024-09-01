@@ -1,4 +1,30 @@
-<div class="card">
+<div class="row">
+    <div class="col-md-4 mt-3" *ngFor="let product of products; let i = index;">
+        <div class="card">
+            <img [src]="" alt="{{ product.name }}" class="card-img-top">
+            <div class="card-header">Receptas {{i + 1}}</div>
+            <div class="card-body">
+                <div>
+                    <strong>Pavadinimas:</strong> {{ product.name }}
+                </div>
+                <div>
+                    <strong>Sudedamosios dalys:</strong> {{ product.part }}
+                </div>
+                <div>
+                    <strong>Kiekis:</strong> {{ product.count }}
+                </div>
+            </div>
+            <div class="card-footer" *ngIf="authService.canEdit()">
+                <div class="d-flex justify-content-between">
+                    <a class="btn btn-success flex-fill me-1" [routerLink]="['/products', product.id]">Redaguoti</a>
+                    <button class="btn btn-danger flex-fill ms-1" (click)="deleteProduct(product.id!)">Ištrinti</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="card">
     <div class="card-header">Receptu sąrašas</div>
     <div class="card-body">
         <table class="table">
@@ -15,15 +41,28 @@
                 <tr *ngFor="let product of products; let i = index">
                     <td>{{i+1}}</td>
                     <td>{{product.name}}</td>
-                    <td>{{product.part}}</td>
-                    <td>{{product.count}}</td>
-                    <td *ngIf="authService.canEdit()">
-                        <a class="btn btn-success" [routerLink]="['/products',product.id]">Redaguoti</a>&nbsp;&nbsp;
-                        <button class="btn btn-danger" (click)="deleteProduct(product.id!)">Ištrinti</button>
+
+
+
+            <tbody>
+                <tr *ngFor="let order of product.orders; let y=index">
+                    <td>
+                        {{ order.part }}
+                    </td>
+                    <td>
+                        {{ order.count }} EUR
                     </td>
 
+
                 </tr>
+            </tbody>
+            <td *ngIf="authService.canEdit()">
+                <a class="btn btn-success" [routerLink]="['/products',product.id]">Redaguoti</a>&nbsp;&nbsp;
+                <button class="btn btn-danger" (click)="deleteProduct(product.id!)">Ištrinti</button>
+            </td>
+
+            </tr>
 
             </tbody>
         </table>
-    </div>
+    </div>-->
