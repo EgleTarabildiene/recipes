@@ -26,6 +26,8 @@ app.use("/img", express.static( path.join("./img") ));
 
 
 
+
+
 app.use('/products', productsRouter);
 app.use('/auth', authRouter);
 app.use("/users", userRouter);

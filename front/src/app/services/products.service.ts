@@ -26,9 +26,20 @@ export class ProductsService {
     return this.http.get<Product>('http://localhost:4999/products/'+id);
   }
 
-  public addProduct(product:Product){
-    return this.http.post('http://localhost:4999/products/',product);
-  }
+public addProduct(product:Product,  filesFile:any) {
+  const postFile=new FormData();
+ postFile.append('name', product.name!);
+ postFile.append('part', product.part!);
+ postFile.append('count', product.count!);
+ postFile.append('file', filesFile);
+  return this.http.post('http://localhost:4999/products/'+product, postFile);
+
+
+
+
+
+
+}
 
  public updateProduct(product:Product){
     return this.http.put('http://localhost:4999/products/',product);

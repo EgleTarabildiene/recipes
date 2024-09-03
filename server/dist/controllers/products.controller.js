@@ -36,16 +36,30 @@ class ProductsController {
     }
     static insert(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sql = "INSERT INTO products (name, part, count) VALUES ( ?, ?, ? )";
-            yield connect_1.pool.query(sql, [req.body.name, req.body.part, req.body.count]);
-            res.status(201).json({
-                "success": true
-            });
+            console.log(req.body);
+            if (!req.file) {
+                return res.status(400).json({
+                    'error': 'File not provided'
+                });
+            }
+            const url = req.protocol + "://" + req.get("host") + "/img/" + req.file.filename;
+            const sql = "INSERT INTO products (name, part, count, file) VALUES ( ?, ?, ?, ? )";
+            try {
+                yield connect_1.pool.query(sql, [req.body.name, req.body.part, req.body.count, url]);
+                res.status(201).json({
+                    "success": true
+                });
+            }
+            catch (error) {
+                res.status(500).json({
+                    'error': 'Failed to insert product'
+                });
+            }
         });
     }
     static update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sql = "UPDATE products SET name=?, part=?, count=? WHERE id=?";
+            const sql = "UPDATE products SET name=?, part=?, count=?, file=? WHERE id=?";
             try {
                 yield connect_1.pool.query(sql, [req.body.name, req.body.part, req.body.count, req.body.id]);
                 res.json({

@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class NavigationComponent {
   public isLoggedin:boolean=false;
+  salad2: string = 'assets/img/salad2.jpg'; // Path to your logo
 
   constructor (public authService:AuthService, private router:Router){
     if (authService.isLoggedin()){

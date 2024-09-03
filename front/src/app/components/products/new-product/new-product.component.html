@@ -1,25 +1,32 @@
 <div class="card mt-3">
     <div class="card-header">Pridėti naują recepta</div>
     <div class="card-body">
-        <form (ngSubmit)="productSubmit(f)" #f="ngForm">
+        <form action="" [formGroup]="fileForm" (ngSubmit)="onSubmitForm()">
             <div class="mb-3">
                 <label for="" class="form-label">Pavadinimas</label>
-                <input type="text" class="form-control" name="name" value="" ngModel minlength="2" maxlength="64" required>
+                <input type="text" class="form-control" name="name" value="" minlength="2" maxlength="64" required formControlName="name">
             </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">Sudetis</label>
-                <input type="text" class="form-control" name="part" value="" ngModel>
+                <input type="text" class="form-control" name="part" value="" formControlName="part">
                 <label for="" class="form-label">Kiekis</label>
-                <input type="text" class="form-control" name="count" value="" ngModel>
+                <input type="text" class="form-control" name="count" value="" formControlName="count">
+            </div>
+
+            <div class="my-3">
+                <img [src]="filePreview" alt="">
+            </div>
+
+            <div>
+                <button class="btn btn-info" type="button" (click)="filePicker.click()">Įkelti failą</button>
+                <input type="file" name="file" class="d-none" #filePicker (change)="onFileChange($event)">
             </div>
             <button class="btn btn-success" type="submit">Pridėti</button>
         </form>
 
     </div>
 </div>
-
-
 
 
 

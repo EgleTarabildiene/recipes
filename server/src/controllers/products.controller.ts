@@ -11,6 +11,9 @@ const [result]=await pool.query<Product[]>(sql);
       res.json(result);
     }
 
+
+    
+
    static async getProduct( req:any, res:any){
         console.log(req.params.id);
         const sql="SELECT * FROM products WHERE id=? ";
@@ -28,16 +31,32 @@ const [result]=await pool.query<Product[]>(sql);
 
 
  static async insert(req:any, res:any){
-const sql="INSERT INTO products (name, part, count) VALUES ( ?, ?, ? )";
-        await pool.query(sql, [req.body.name, req.body.part, req.body.count]);
-       res.status(201).json({
-            "success":true
-        })
+    console.log(req.body);
+
+ if (!req.file) {
+        return res.status(400).json({
+            'error': 'File not provided'
+        });
     }
 
 
+     const url=req.protocol+"://"+req.get("host")+"/img/"+req.file.filename ;
+const sql="INSERT INTO products (name, part, count, file) VALUES ( ?, ?, ?, ? )";
+        
+ try {
+        await pool.query(sql, [req.body.name, req.body.part, req.body.count, url]);
+        res.status(201).json({
+            "success": true
+        });
+    } catch (error) {
+        res.status(500).json({
+            'error': 'Failed to insert product'
+        });
+    }
+}
+
  static async update(req:any, res:any){
-        const sql="UPDATE products SET name=?, part=?, count=? WHERE id=?";
+        const sql="UPDATE products SET name=?, part=?, count=?, file=? WHERE id=?";
  
   try{
             await pool.query(sql, [req.body.name, req.body.part, req.body.count, req.body.id]);

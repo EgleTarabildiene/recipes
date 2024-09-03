@@ -1,6 +1,14 @@
-export interface Product {
-    id?:number;
-    name:string;
-    part:string;
-    count:string;
+
+export class Product {
+
+    constructor(
+        public name:string,
+        public part:string,
+        public count:string,
+
+       public file?:string,
+    public id?:number,  
+ 
+    ){}
+  
 }

@@ -5,4 +5,5 @@ export interface Product extends RowDataPacket{
     name: string;
     part: string;
     count: string;
+    file:string;
 }
