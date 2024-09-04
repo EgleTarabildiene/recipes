@@ -20,7 +20,7 @@ export const routes: Routes = [
     {path:"products/list", component:ListProductsComponent},
     {path:"products/new", component:NewProductComponent, canActivate:[viewGuard]},
     {path:"products/:id", component:UpdateProductComponent, canActivate:[adminGuard]},
-    {path:"products/list/recipe/:id", component:RecipeComponent, canActivate:[editGuard]},
+    {path:"products/list/recipe/:id", component:RecipeComponent},
 
     
     

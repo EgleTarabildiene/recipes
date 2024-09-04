@@ -1,5 +1,8 @@
 <div class="card">
     <div class="card-body">
-        Čia bus mūsų filtracija ir kiti daiktai
+        <div class="mb-3">
+            <input type="text" class="form-control" [(ngModel)]="filter" placeholder="Pavadinimas">
+        </div>
+        <button class="btn btn-success" (click)="onFilter()">Filtruoti</button>
     </div>
 </div>

@@ -19,6 +19,18 @@ class ProductsController {
             res.json(result);
         });
     }
+    static filterProducts(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (req.user.type > 2) {
+                return res.status(400).json({
+                    text: "Neturite teisiu"
+                });
+            }
+            const sql = "SELECT * FROM products WHERE name like ?";
+            const [result] = yield connect_1.pool.query(sql, ["%" + req.params.filter + "%"]);
+            res.json(result);
+        });
+    }
     static getProduct(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log(req.params.id);

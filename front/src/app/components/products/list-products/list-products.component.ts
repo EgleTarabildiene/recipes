@@ -10,5 +10,10 @@ import { TableProductsComponent } from "./table-products/table-products.componen
   styleUrl: './list-products.component.css'
 })
 export class ListProductsComponent {
+  public filter:String="";
+
+  public onFilterChanged(filter:String){
+    this.filter=filter;
+  }
 
 }

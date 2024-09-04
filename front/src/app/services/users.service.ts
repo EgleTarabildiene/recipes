@@ -14,7 +14,7 @@ export class UsersService {
     return this.http.get<User[]>('http://localhost:4999/users/').pipe(map((users)=>{
       const usersO:User[]=[];
       users.forEach((user)=>{
-        usersO.push( new User(user.email, user.id, user.name, user.password, user.type, user.token) );
+        usersO.push( new User(user.email, user.id, user.name, user.password, user.type, user.token, user.img) );
       });
       return usersO;
     }));

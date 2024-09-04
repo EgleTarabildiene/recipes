@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user';
 
@@ -7,11 +7,15 @@ import { User } from '../../models/user';
   standalone: true,
   imports: [],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.css'
+  styleUrl: './home-page.component.css',
+   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 
 
 export class HomePageComponent {
+
+
+  
   public user:User|null;
 fruit3: string = 'assets/img/fruit33.jpg'; // Path to your logo
 salad1: string = 'assets/img/salad1.jpg'; // Path to your logo
