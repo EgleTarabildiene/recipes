@@ -1,0 +1,11 @@
+<div *ngIf="product" class="card mb-3">
+    <img [src]="product.file" class="card-img-top" [alt]="product.name">
+    <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text"><strong>Sudedamosios dalys:</strong> {{ product.part }}</p>
+        <p class="card-text"><strong>Aprašymas:</strong> {{ product.count }}</p>
+        <p class="card-text">
+            <small class="text-body-secondary">Last updated 3 mins ago</small>
+        </p>
+    </div>
+</div>

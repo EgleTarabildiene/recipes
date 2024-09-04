@@ -1,0 +1,15 @@
+.card-img-top {
+    width: 40%;
+    /* Nustatomas paveikslėlio plotis (pusė ekrano pločio) */
+    height: auto;
+    /* Automatiškai nustato aukštį, kad išlaikytų proporcijas */
+    display: block;
+    /* Kad paveikslėlis būtų bloko elementas */
+    margin: 0 auto;
+    /* Centruoja paveikslėlį horizontaliai */
+}
+
+.card-body {
+    text-align: center;
+    /* Centruoja tekstą */
+}

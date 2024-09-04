@@ -5,7 +5,7 @@
             <div class="card-header" style="background-color: rgba(144, 238, 144, 0.3)">{{ product.name }}</div>
             <div class="card-body">
                 <td>
-                    <img [src]="product.file" alt="{{ product.name }}" class="img-thumbnail" style="max-width: 100px;" />
+                    <img [src]="product.file" alt="{{ product.name }}" class="img-thumbnail" style="max-width: 100px;" [routerLink]="['recipe', product.id ]" />
                 </td>
 
                 <div>

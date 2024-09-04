@@ -3,6 +3,8 @@ import { AuthService } from '../../../services/auth.service';
 import { User } from '../../../models/user';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ProductsService } from '../../../services/products.service';
+import { Product } from '../../../models/product';
 
 @Component({
   selector: 'app-profile-main',
@@ -13,9 +15,20 @@ import { CommonModule } from '@angular/common';
 })
 export class ProfileMainComponent {
   public user:User|null;
-  constructor (private authService:AuthService){
+public product: Product | null = null;
+
+  constructor (private authService:AuthService, private productsService:ProductsService ){
     this.user=authService.user;
 
   }
 
+
+  private loadProduct(id: number): void {
+    this.productsService.getProduct(id).subscribe((product) => {
+      this.product = product;
+    });
+  }
 }
+
+
+

@@ -7,9 +7,17 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class ProductsService {
+public product:Product|null=null;
 
-  constructor(private http:HttpClient, private authService:AuthService) { }
 
+  constructor(private http:HttpClient) { 
+    const product=localStorage.getItem("product");
+    if (product!=null){
+      this.product=JSON.parse(product);
+      console.log(this.product);
+    }
+  }
+  
 
   public getProducts(){
     return this.http.get<Product[]>('http://localhost:4999/products/');

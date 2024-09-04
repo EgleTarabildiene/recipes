@@ -14,10 +14,15 @@ import { UpdateUserComponent } from './components/users/update-user/update-user.
 import { ProfileComponent } from './components/users/profile/profile.component';
 import { ProfileMainComponent } from './components/users/profile-main/profile-main.component';
 
+import { RecipeComponent } from './components/products/list-products/recipe/recipe.component';
+
 export const routes: Routes = [
     {path:"products/list", component:ListProductsComponent},
     {path:"products/new", component:NewProductComponent, canActivate:[viewGuard]},
-    {path:"products/:id", component:UpdateProductComponent, canActivate:[editGuard]},
+    {path:"products/:id", component:UpdateProductComponent, canActivate:[adminGuard]},
+    {path:"products/list/recipe/:id", component:RecipeComponent, canActivate:[editGuard]},
+
+    
     
     
     {path:"auth/signin", component:SigninComponent},
@@ -42,6 +47,7 @@ export const routes: Routes = [
         path:"profile",
         component:ProfileComponent
     },
+ 
 
  
     {path:"", component:HomePageComponent},
