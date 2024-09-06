@@ -4,16 +4,24 @@ import { Product } from '../../../../models/product';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../../services/auth.service';
+import { MealsService } from '../../../../services/meals.service';
+import { Meal } from '../../../../models/meal';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { StarComponent } from '../../../star/star.component';
 
 @Component({
   selector: 'app-table-products',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, FormsModule, FontAwesomeModule, StarComponent],
   templateUrl: './table-products.component.html',
   styleUrls: ['./table-products.component.css']
 })
 export class TableProductsComponent implements OnChanges {
   
+  faCoffee = faCoffee;
+  public meals:Meal[]=[];
   public products: Product[] = [];
 
 
@@ -34,9 +42,17 @@ export class TableProductsComponent implements OnChanges {
   }
 
 
+    private loadMeals(){
+  this.mealsService.getMeals().subscribe((data)=>{
+    this.meals=data;
+    });
+  }
 
-  constructor(private productsService: ProductsService, public authService: AuthService) {
+
+
+  constructor(private productsService: ProductsService, public authService: AuthService, private mealsService:MealsService) {
     this.loadProducts();
+    this.loadMeals();
   }
 
 
@@ -52,5 +68,14 @@ export class TableProductsComponent implements OnChanges {
     this.productsService.deleteProduct(id).subscribe(() => {
       this.loadProducts();
     });
+  }
+
+  public getMealName(id:number){
+    let result="";
+    this.meals.forEach((meal)=>{ 
+      if (meal.id==id) 
+        result= meal.name;
+    });
+    return result;
   }
 }

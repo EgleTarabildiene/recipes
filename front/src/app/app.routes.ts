@@ -15,6 +15,8 @@ import { ProfileComponent } from './components/users/profile/profile.component';
 import { ProfileMainComponent } from './components/users/profile-main/profile-main.component';
 
 import { RecipeComponent } from './components/products/list-products/recipe/recipe.component';
+import { ListMealsComponent } from './components/meals/list-meals/list-meals.component';
+import { NewMealsComponent } from './components/meals/new-meals/new-meals.component';
 
 export const routes: Routes = [
     {path:"products/list", component:ListProductsComponent},
@@ -48,7 +50,8 @@ export const routes: Routes = [
         component:ProfileComponent
     },
  
-
+ {path:"meals/list", component:ListMealsComponent},
+    {path:"meals/new", component:NewMealsComponent, canActivate:[viewGuard]},
  
     {path:"", component:HomePageComponent},
    

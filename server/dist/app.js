@@ -10,6 +10,7 @@ const products_router_1 = require("./routes/products.router");
 const auth_router_1 = require("./routes/auth.router");
 const user_router_1 = require("./routes/user.router");
 const path_1 = __importDefault(require("path"));
+const meals_router_1 = require("./routes/meals.router");
 const app = (0, express_1.default)();
 exports.app = app;
 //Sutvarkomi duomenys jei buvo siusta forma
@@ -22,3 +23,4 @@ app.use("/img", express_1.default.static(path_1.default.join("./img")));
 app.use('/products', products_router_1.productsRouter);
 app.use('/auth', auth_router_1.authRouter);
 app.use("/users", user_router_1.userRouter);
+app.use("/meals", meals_router_1.mealsRouter);

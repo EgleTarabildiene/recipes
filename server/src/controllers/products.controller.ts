@@ -51,10 +51,10 @@ const [result]=await pool.query<Product[]>(sql);
 
 
      const url=req.protocol+"://"+req.get("host")+"/img/"+req.file.filename ;
-const sql="INSERT INTO products (name, part, count, file) VALUES ( ?, ?, ?, ? )";
+const sql="INSERT INTO products (name, part, count, meals_id, file) VALUES ( ?, ?, ?, ?, ? )";
         
  try {
-        await pool.query(sql, [req.body.name, req.body.part, req.body.count, url]);
+        await pool.query(sql, [req.body.name, req.body.part, req.body.count, req.body.meals_id, url]);
         res.status(201).json({
             "success": true
         });
@@ -65,11 +65,12 @@ const sql="INSERT INTO products (name, part, count, file) VALUES ( ?, ?, ?, ? )"
     }
 }
 
+
  static async update(req:any, res:any){
-        const sql="UPDATE products SET name=?, part=?, count=?, file=? WHERE id=?";
+        const sql="UPDATE products SET name=?, part=?, count=?, meals_id=?, file=? WHERE id=?";
  
   try{
-            await pool.query(sql, [req.body.name, req.body.part, req.body.count, req.body.id]);
+            await pool.query(sql, [req.body.name, req.body.part, req.body.count,, req.body.meals_id, req.body.id]);
         
    res.json({
             "success":true

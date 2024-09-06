@@ -1,17 +1,41 @@
-<swiper-container loop="true" navigation="true">
-    <swiper-slide><img [src]="salad1" class="d-block w-50" />s1</swiper-slide>
-    <swiper-slide><img [src]="salad2" class="d-block w-50" />s2</swiper-slide>
-    <swiper-slide><img [src]="fruit3" class="d-block w-50" />s3</swiper-slide>
+<swiper-container class="mySwiper mt-3 img-thumbnail" space-between="30" slides-per-view="auto" pagination="true" pagination-clickable="true">
+    <swiper-slide><img [src]="salad1" /> Darzoviu salotos</swiper-slide>
+    <swiper-slide><img [src]="salad2" />Vaisiu salotos</swiper-slide>
+    <swiper-slide><img [src]="fruit3" />Rinkis kas sveika</swiper-slide>
 
 </swiper-container>
 
-<div class="row">
+
+<h2 class="mt-5" style="text-align: center;">ŠIANDIENOS PATIEKALAS</h2>
+
+<div class="card mb-3" style="max-width: 700px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img [src]="salad1" style="max-width: 100%;" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-body-secondary"></small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 class="mt-5" style="text-align: center;">POPULIARIAUSI RECEPTAI</h3>
+
+
+
+
+<div class="row mt-5">
     <div class="col-sm-6 mb-3 mb-sm-0">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Ką dabar gaminame:</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <img [src]="salad1" style="max-width: 70%;" />
+                <p class="card-text">Salotos</p>
+                <a href="#" class="btn btn-success">Go somewhere</a>
             </div>
         </div>
     </div>
@@ -19,11 +43,107 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Ką dabar gaminame:</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <img [src]="salad2" style="max-width: 70%;" />
+                <p class="card-text">Vaisiai</p>
+                <a href="#" class="btn btn-success">Go somewhere</a>
             </div>
         </div>
     </div>
+</div>
+
+
+
+<div class="container my-5">
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-black" style="background-color: rgba(144, 238, 144, 0.3)">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">
+                            Autore
+                        </h6>
+                        <p>
+                            Eglė Tarabildienė
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold text-black">Naudota</h6>
+                        <p>
+                            <a class="text-black"></a>
+                        </p>
+                        <p>
+                            <a></a>
+                        </p>
+                        <p>
+                            <a></a>
+                        </p>
+                        <p>
+                            <a></a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Kontaktai</h6>
+                        <p><i class="fas fa-home mr-3"></i>Lietuva</p>
+
+                        <p><i class="fas fa-phone mr-3"></i> +37064892060</p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Git hub</h6>
+
+                        <!-- Facebook -->
+                        <a href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+
+                        <!-- Twitter -->
+                        <a href="#!" role="button"><i class="fab fa-twitter"></i></a>
+
+                        <!-- Google -->
+                        <a href="#!" role="button"><i class="fab fa-google"></i></a>
+
+                        <!-- Instagram -->
+                        <a href="#!" role="button"><i class="fab fa-instagram"></i></a>
+
+                        <!-- Linkedin -->
+                        <a href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+                        <!-- Github -->
+                        <a href="#!" role="button"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2024
+
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
 </div>
 <!--<app-image-slider></app-image-slider>
 <div id="carouselExample" class="carousel slide">

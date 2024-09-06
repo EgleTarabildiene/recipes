@@ -2,28 +2,44 @@
     <div class="col-md-4 mt-3" *ngFor="let product of products; let i = index;">
         <div class="card">
 
-            <div class="card-header" style="background-color: rgba(144, 238, 144, 0.3)">{{ product.name }}</div>
+            <div class="card-header" style="background-color: rgba(144, 238, 144, 0.3); text-align: center;"><strong>{{ product.name }}</strong></div>
             <div class="card-body">
                 <td>
-                    <img [src]="product.file" alt="{{ product.name }}" class="img-thumbnail" style="max-width: 100px;" [routerLink]="['recipe', product.id ]" />
+                    <img [src]="product.file" alt="{{ product.name }}" class="img-thumbnail" style="min-width: 30px;" [routerLink]="['recipe', product.id ]" />
                 </td>
+                <app-star [rating]="3"></app-star>
+                <div>
+                    {{ getMealName(product.meals_id) }}
+                </div>
 
-                <div>
-                    <strong>Sudedamosios dalys</strong> {{ product.part }}
-                </div>
-                <div>
-                    <strong>Aprasymas</strong> {{ product.count }}
-                </div>
             </div>
             <div class="card-footer" *ngIf="authService.canEdit()">
                 <div class="d-flex justify-content-between">
-                    <a class="btn btn-success flex-fill me-1" [routerLink]="['/products', product.id]">Redaguoti</a>
+                    <a class="btn btn-success flex-fill me-1" style="min-width: 30px;" [routerLink]="['/products', product.id]">Redaguoti</a>
                     <button class="btn btn-danger flex-fill ms-1" (click)="deleteProduct(product.id!)">Ištrinti</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--<div class="table-responsive">
     <table class="table table-bordered table-striped">
         <thead>

@@ -7,6 +7,7 @@ import { authRouter } from "./routes/auth.router";
 import { authMiddleware } from "./middlewares/auth.middleware";
 import { userRouter } from "./routes/user.router";
 import path from "path";
+import { mealsRouter } from "./routes/meals.router";
 
 const app:Application=express();
 
@@ -31,6 +32,7 @@ app.use("/img", express.static( path.join("./img") ));
 app.use('/products', productsRouter);
 app.use('/auth', authRouter);
 app.use("/users", userRouter);
+app.use("/meals", mealsRouter);
 
 
 export {app};

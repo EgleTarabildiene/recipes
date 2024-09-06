@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-header">Tipai</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nr</th>
+                    <th>Pavadinimas</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let meal of meals; let i=index;">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ meal.name }}</td>
+
+
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
