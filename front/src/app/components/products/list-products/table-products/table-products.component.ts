@@ -10,11 +10,12 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { StarComponent } from '../../../star/star.component';
+import { FilterProductsComponent } from '../filter-products/filter-products.component';
 
 @Component({
   selector: 'app-table-products',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, FontAwesomeModule, StarComponent],
+  imports: [CommonModule, RouterLink, FormsModule, FontAwesomeModule, StarComponent, FilterProductsComponent],
   templateUrl: './table-products.component.html',
   styleUrls: ['./table-products.component.css']
 })
@@ -22,24 +23,41 @@ export class TableProductsComponent implements OnChanges {
   
   faCoffee = faCoffee;
   public meals:Meal[]=[];
-  public products: Product[] = [];
+    public mealId:String="";
 
+ public products: Product[] = [];
+
+
+
+
+
+
+
+
+ 
 
     @Input()
   public filterText:String="";
+ public filterMealId:string="";
 
 
-  private loadProducts() {
-  if (this.filterText!=""){
-      this.productsService.getFiltredProducts(this.filterText).subscribe((data)=>{
-        this.products=data;
-      });
-    }else{
-      this.productsService.getProducts().subscribe((data)=>{
-        this.products=data;
-      });
-    }
+
+ private loadProducts() {
+  if (this.filterText !== "") {
+    this.productsService.getFiltredProducts(this.filterText).subscribe((data) => {
+      this.products = data;
+    });
+ } else if (this.filterMealId !== "") {
+    this.productsService.getProductsByMeal(this.filterMealId).subscribe((data) => {
+      this.products = data;
+    });
+  } else {
+    // Užkrauname visus produktus, jei nėra pasirinktas konkretus patiekalas
+    this.productsService.getProducts().subscribe((data) => {
+      this.products = data;
+    });
   }
+}
 
 
     private loadMeals(){
@@ -77,5 +95,10 @@ export class TableProductsComponent implements OnChanges {
         result= meal.name;
     });
     return result;
+  }
+
+
+  public filterByMeal() {
+    this.loadProducts();
   }
 }

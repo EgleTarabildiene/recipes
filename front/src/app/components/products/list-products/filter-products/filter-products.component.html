@@ -1,22 +1,19 @@
+<!-- Filter by product name -->
 <div class="card">
     <div class="card-body">
         <div class="mb-3">
             <input type="text" class="form-control" [(ngModel)]="filter" placeholder="Pavadinimas">
         </div>
-        <button class="btn btn-success" (click)="onFilter()">Filtruoti</button>
+        <button class="btn btn-success" (click)="onFilter()">Filtruoti pagal pavadinimą</button>
     </div>
 </div>
 
-
-
-
-
-
-<!--<div class="card">
+<!-- Filter by meal ID -->
+<div class="card mt-3">
     <div class="card-body">
         <div class="mb-3">
-            <input type="text" class="form-control" [(ngModel)]="filter" placeholder="Pavadinimas">
+            <input type="text" class="form-control" [(ngModel)]="mealId" placeholder="Patiekalo ID">
         </div>
-        <button class="btn btn-success" (click)="onFilter()">Filtruoti</button>
+        <button class="btn btn-success" (click)="onMealId()">Filtruoti pagal patiekalą</button>
     </div>
-</div>-->
+</div>

@@ -13,6 +13,7 @@ const productsRouter = express_1.default.Router();
 exports.productsRouter = productsRouter;
 productsRouter.get("/", products_controller_1.ProductsController.getAll);
 productsRouter.get("/filter/:filter", auth_middleware_1.authMiddleware, edit_products_middleware_1.editProductsMiddleware, products_controller_1.ProductsController.filterProducts);
+productsRouter.get("/mealId/:mealId", auth_middleware_1.authMiddleware, edit_products_middleware_1.editProductsMiddleware, products_controller_1.ProductsController.filterByMeal);
 productsRouter.get("/:id", auth_middleware_1.authMiddleware, edit_products_middleware_1.editProductsMiddleware, products_controller_1.ProductsController.getProduct);
 productsRouter.post("/", auth_middleware_1.authMiddleware, edit_products_middleware_1.editProductsMiddleware, products_controller_1.ProductsController.insert);
 productsRouter.put("/", auth_middleware_1.authMiddleware, edit_products_middleware_1.editProductsMiddleware, products_controller_1.ProductsController.update);

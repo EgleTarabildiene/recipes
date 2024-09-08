@@ -31,6 +31,22 @@ class ProductsController {
             res.json(result);
         });
     }
+    static filterByMeal(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (req.user.type > 2) {
+                return res.status(400).json({
+                    text: "Neturite teisiu"
+                });
+            }
+            const sql = `
+       SELECT p.* FROM products p
+      LEFT JOIN meals m ON p.meals_id = m.id 
+      WHERE m.id = ?
+   `;
+            const [result] = yield connect_1.pool.query(sql, [req.params.mealId]);
+            res.json(result);
+        });
+    }
     static getProduct(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log(req.params.id);

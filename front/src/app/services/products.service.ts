@@ -29,6 +29,9 @@ public product:Product|null=null;
   }
 
 
+ public getProductsByMeal(mealId: string) {
+  return this.http.get<Product[]>('http://localhost:4999/products/mealId/'+mealId);
+}
 
   public getProduct(id:number){
     return this.http.get<Product>('http://localhost:4999/products/'+id);
