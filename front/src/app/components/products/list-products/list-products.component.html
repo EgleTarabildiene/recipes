@@ -1,9 +1,28 @@
-<div class="row mt-3">
+<div class=" row mt-3">
     <div class="col-md-3 col-lg-2 mb-3">
-        <!-- This is for filtering by name -->
-        <app-filter-products (filterChanged)="onFilterChanged($event)"></app-filter-products>
+
+        <app-filter-products (filterChanged)="onFilterChanged($event)" (mealChanged)="onMealChanged($event)">
+        </app-filter-products>
     </div>
     <div class="col-md-9 col-lg-10 mb-3">
+
+        <app-table-products [filterText]="filter" [filterMealId]="mealId"></app-table-products>
+    </div>
+</div>
+
+
+<!--
+
+
+
+<div class="row mt-3">
+    <div class="col-md-3 col-lg-2 mb-3">
+      
+        <app-filter-products (filterChanged)="onFilterChanged($event)" (mealChanged)="onMealChanged($event)">
+        </app-filter-products>
+    </div>
+    <div class="col-md-9 col-lg-10 mb-3">
+       
         <app-table-products [filterText]="filter" [filterMealId]="mealId"></app-table-products>
     </div>
 </div>
@@ -14,7 +33,14 @@
 
 
 
-<!--
+
+
+
+
+
+
+
+
 <div class="row mt-3"></div>
     <div class="col-md-3 col-lg-2 mb-3">
         <app-filter-products (filterChanged)="onFilterChanged($event)"></app-filter-products>

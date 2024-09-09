@@ -1,19 +1,76 @@
 <!-- Filter by product name -->
-<div class="card">
-    <div class="card-body">
-        <div class="mb-3">
-            <input type="text" class="form-control" [(ngModel)]="filter" placeholder="Pavadinimas">
+<div class="row">
+    <div class="col-md-4 mt-3"></div>
+    <div class="card">
+        <div class="card-body">
+            <div class="mb-3">
+                <input type="text" class="form-control" [(ngModel)]="filter" placeholder="Pavadinimas">
+            </div>
+            <button class="btn btn-success" (click)="onFilter()">Filtruoti pagal pavadinimą</button>
         </div>
-        <button class="btn btn-success" (click)="onFilter()">Filtruoti pagal pavadinimą</button>
     </div>
+
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="mealSelect">Pasirinkite patiekalą</label>
+                <select id="mealSelect" class="form-control" [(ngModel)]="selectedMealId">
+                    <option value="">Pasirinkite...</option>
+                    <option *ngFor="let meal of meals" [value]="meal.id">{{ meal.name }}</option>
+                </select>
+            </div>
+            <button class="btn btn-success" (click)="onMealSelect()">Filtruoti pagal patiekalo pavadinimą</button>
+        </div>
+    </div>
+
 </div>
 
-<!-- Filter by meal ID -->
+
+
+
+<!--
+
+
+<div class="row">
+
+    <div class="card">
+        <div class="card-body">
+            <div class="mb-3">
+                <input type="text" class="form-control" [(ngModel)]="filter" placeholder="Pavadinimas">
+            </div>
+            <button class="btn btn-success" (click)="onFilter()">Filtruoti pagal pavadinimą</button>
+        </div>
+    </div>
+
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="mealSelect">Pasirinkite patiekalą</label>
+                <select id="mealSelect" class="form-control" [(ngModel)]="selectedMealId">
+                    <option value="">Pasirinkite...</option>
+                    <option *ngFor="let meal of meals" [value]="meal.id">{{ meal.name }}</option>
+                </select>
+            </div>
+            <button class="btn btn-success" (click)="onMealSelect()">Filtruoti pagal patiekalo pavadinimą</button>
+        </div>
+    </div>
+
+</div>
+
+
+
 <div class="card mt-3">
     <div class="card-body">
         <div class="mb-3">
-            <input type="text" class="form-control" [(ngModel)]="mealId" placeholder="Patiekalo ID">
+            <label for="mealSelect">Pasirinkite patiekalą</label>
+            <select id="mealSelect" class="form-control" [(ngModel)]="selectedMealId">
+                <option value="">Pasirinkite...</option>
+                <option *ngFor="let meal of meals" [value]="meal.id">{{ meal.name }}</option>
+            </select>
         </div>
-        <button class="btn btn-success" (click)="onMealId()">Filtruoti pagal patiekalą</button>
+        <button class="btn btn-success" (click)="onMealSelect()">Filtruoti pagal patiekalo pavadinimą</button>
     </div>
 </div>
+
+
+-->

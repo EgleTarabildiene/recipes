@@ -11,15 +11,16 @@ import { TableProductsComponent } from "./table-products/table-products.componen
    schemas: [NO_ERRORS_SCHEMA]
 })
 export class ListProductsComponent {
-  public filter:String="";
-  public mealId:String="";
+  public filter: string = "";
+  public mealId: string = "";
 
-  public onFilterChanged(filter:String){
-    this.filter=filter;
-    
-  }
-  public onMealChanged(mealId:String){
-    this.mealId=mealId;
+  // Handles when the user changes the name filter
+  public onFilterChanged(filter: string) {
+    this.filter = filter;
   }
 
+  // Handles when the user selects a meal
+  public onMealChanged(mealId: string) {
+    this.mealId = mealId;
+  }
 }

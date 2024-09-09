@@ -10,6 +10,7 @@ const productsRouter=express.Router();
 productsRouter.get("/", ProductsController.getAll);
 productsRouter.get("/filter/:filter", authMiddleware,editProductsMiddleware,  ProductsController.filterProducts);
 productsRouter.get("/mealId/:mealId", authMiddleware, editProductsMiddleware, ProductsController.filterByMeal);
+productsRouter.get("/userId/:userId", authMiddleware, editProductsMiddleware, ProductsController.myMeal);
 productsRouter.get("/:id",authMiddleware, editProductsMiddleware, ProductsController.getProduct);
 productsRouter.post("/",authMiddleware, editProductsMiddleware, ProductsController.insert);
 productsRouter.put("/",authMiddleware, editProductsMiddleware, ProductsController.update);

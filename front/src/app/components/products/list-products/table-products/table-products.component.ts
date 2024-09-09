@@ -21,6 +21,8 @@ import { FilterProductsComponent } from '../filter-products/filter-products.comp
 })
 export class TableProductsComponent implements OnChanges {
   
+    
+  
   faCoffee = faCoffee;
   public meals:Meal[]=[];
     public mealId:String="";
@@ -36,9 +38,8 @@ export class TableProductsComponent implements OnChanges {
 
  
 
-    @Input()
-  public filterText:String="";
- public filterMealId:string="";
+    @Input() filterText: string = "";
+  @Input() filterMealId: string = "";
 
 
 

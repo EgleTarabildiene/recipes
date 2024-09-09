@@ -32,6 +32,11 @@ public product:Product|null=null;
  public getProductsByMeal(mealId: string) {
   return this.http.get<Product[]>('http://localhost:4999/products/mealId/'+mealId);
 }
+ public getMyMeal(userId: string) {
+  return this.http.get<Product[]>('http://localhost:4999/products/userId/'+userId);
+}
+
+
 
   public getProduct(id:number){
     return this.http.get<Product>('http://localhost:4999/products/'+id);
@@ -43,6 +48,7 @@ public addProduct(product:Product,  filesFile:any) {
  postFile.append('part', product.part!);
  postFile.append('count', product.count!);
  postFile.append('meals_id', product.meals_id?.toString());
+ postFile.append('users_id', product.users_id?.toString());
  postFile.append('file', filesFile);
 
 

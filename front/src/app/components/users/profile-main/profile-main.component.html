@@ -1,16 +1,16 @@
 <div class="row">
-    <div class="col-md-3 mt-3">
-
+    <!-- Vartotojo informacija -->
+    <div class="col-md-4 mt-3">
         <div class="card">
             <div class="card-header">Vartotojas</div>
             <div class="card-body">
                 <img [src]="user?.img" alt="" class="img-fluid">
                 <hr>
                 <div>
-                    Vardas: <b> {{ user?.name }}</b>
+                    Vardas: <b>{{ user?.name }}</b>
                 </div>
                 <div>
-                    El. pašto adresas: <b> {{ user?.email }}</b>
+                    El. pašto adresas: <b>{{ user?.email }}</b>
                 </div>
             </div>
             <a class="btn btn-success mx-3" routerLink="/profile">
@@ -19,8 +19,27 @@
         </div>
     </div>
 
-
-    <div *ngIf="product">
-        <img [src]="product.file" class="card-img-top" [alt]="product.name">
+    <!-- Vartotojo sukurti produktai -->
+    <div class="col-md-8 mt-3">
+        <h2>Mano ikelti receptai</h2>
+        <div class="row">
+            <div class="col-md-6 mt-3" *ngFor="let product of products">
+                <div class="card">
+                    <div class="card-header" style="background-color: rgba(144, 238, 144, 0.3); text-align: center;">
+                        <strong>{{ product.name }}</strong>
+                    </div>
+                    <div class="card-body">
+                        <img [src]="product.file" alt="{{ product.name }}" class="img-thumbnail" style="width: 100%;">
+                        <div>{{ getMealName(product.meals_id) }}</div>
+                    </div>
+                    <div class="card-footer" *ngIf="authService.canViewData()">
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-success flex-fill me-1" [routerLink]="['/products', product.id]">Redaguoti</a>
+                            <button class="btn btn-danger flex-fill ms-1" (click)="deleteProduct(product.id!)">Ištrinti</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

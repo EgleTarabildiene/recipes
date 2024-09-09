@@ -14,21 +14,38 @@ import { Product } from '../../../models/product';
   styleUrl: './profile-main.component.css'
 })
 export class ProfileMainComponent {
-  public user:User|null;
-public product: Product | null = null;
+  public user: User | null;
+  public products: Product[] = [];
+  public userId: string="";
 
-  constructor (private authService:AuthService, private productsService:ProductsService ){
-    this.user=authService.user;
 
+
+  constructor(public authService: AuthService, private productsService: ProductsService) {
+    this.user = this.authService.user;
+    this.loadMyProducts();
   }
 
 
-  private loadProduct(id: number): void {
-    this.productsService.getProduct(id).subscribe((product) => {
-      this.product = product;
+
+private loadMyProducts() {
+  if (this.user && this.user.id) {
+    const userId = this.user.id.toString();  // Konvertuojame į string
+    this.productsService.getMyMeal(userId).subscribe((data) => {
+      this.products = data;
     });
   }
 }
 
+  public getMealName(mealId: number): string {
+    // Čia turėtų būti funkcija, kuri gauna patiekalo pavadinimą pagal mealId
+    return ''; 
+  }
+
+  public deleteProduct(id: number) {
+    this.productsService.deleteProduct(id).subscribe(() => {
+      this.loadMyProducts();
+    });
+  }
+}
 
 
