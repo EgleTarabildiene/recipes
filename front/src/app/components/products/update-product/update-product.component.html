@@ -3,23 +3,33 @@
 <div class="card mt-3">
     <div class="card-header">Atnaujinti recepta</div>
     <div class="card-body">
-        <form (ngSubmit)="productSubmit(f)" #f="ngForm">
+        <form [formGroup]="fileForm" (ngSubmit)="onSubmitForm()" #f="ngForm">
             <div class="mb-3">
                 <label for="" class="form-label">Pavadinimas</label>
-                <input type="text" class="form-control" name="name" value="" ngModel [(ngModel)]="name">
+                <input type="text" class="form-control" name="name" value="" ngModel formControlName="name">
+            </div>
+            <div class="mb-3">
+                <label for="meals_id" class="form-label">Patiekalo kategorija</label>
+                <select class="form-control" id="meals_id" name="meals_id" formControlName="meals_id">
+                    <option *ngFor="let meal of meals; let i = index" [value]="meal.id">{{ meal.name }}</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Sudetis</label>
-                <input type="text" class="form-control" name="part" value="" ngModel [(ngModel)]="part">
+                <input type="text" class="form-control" name="part" value="" ngModel formControlName="part">
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Kiekis</label>
-                <input type="text" class="form-control" name="count" value="" ngModel [(ngModel)]="count">
+                <input type="text" class="form-control" name="count" value="" ngModel formControlName="count">
             </div>
-
-
-
-            <button class="btn btn-success" type="submit">Atnaujinti</button>
+            <div class="my-3">
+                <img [src]="filePreview" alt="">
+            </div>
+            <div>
+                <button class="btn btn-info" type="button" (click)="filePicker.click()">Įkelti failą</button>
+                <input type="file" name="file" class="d-none" #filePicker (change)="onFileChange($event)">
+            </div>
+            <button class="btn btn-success" type="submit">Pridėti</button>
         </form>
 
     </div>

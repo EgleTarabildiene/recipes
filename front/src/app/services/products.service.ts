@@ -48,13 +48,15 @@ public addProduct(product:Product,  filesFile:any) {
  postFile.append('part', product.part!);
  postFile.append('count', product.count!);
  postFile.append('meals_id', product.meals_id?.toString());
- postFile.append('users_id', product.users_id?.toString());
- postFile.append('rating', product.count!);
+
+
  postFile.append('file', filesFile);
 
+   postFile.forEach((value, key) => {
+    console.log(`${key}: ${value}`);
+  });
 
-
-  return this.http.post('http://localhost:4999/products/'+product, postFile);
+  return this.http.post('http://localhost:4999/products/'+product.id, postFile);
 
 
 
@@ -63,8 +65,18 @@ public addProduct(product:Product,  filesFile:any) {
 
 }
 
- public updateProduct(product:Product){
-    return this.http.put('http://localhost:4999/products/',product);
+ public updateProduct(product: Product, file: any) {
+  const formData = new FormData();
+  formData.append('name', product.name!);
+  formData.append('part', product.part!);
+  formData.append('count', product.count!);
+  formData.append('meals_id', product.meals_id?.toString());
+
+  if (file) {
+    formData.append('file', file);
+  }
+
+    return this.http.put('http://localhost:4999/products/',formData);
   }
 
 

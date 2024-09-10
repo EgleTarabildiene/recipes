@@ -7,7 +7,7 @@
                 <td>
                     <img [src]="product.file" alt="{{ product.name }}" class="img-thumbnail fonas" style="min-width: 30px;" [routerLink]="['recipe', product.id ]" />
                 </td>
-                <app-star [rating]="product.rating"></app-star>
+                <app-star [rating]="5"></app-star>
                 <div>
                     {{ getMealName(product.meals_id) }}
                 </div>

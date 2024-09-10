@@ -31,13 +31,6 @@ export class TableProductsComponent implements OnChanges {
 
 
 
-
-
-
-
-
- 
-
     @Input() filterText: string = "";
   @Input() filterMealId: string = "";
 

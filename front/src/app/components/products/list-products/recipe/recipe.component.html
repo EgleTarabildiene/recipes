@@ -1,16 +1,17 @@
 <div *ngIf="product" class="card m-3">
-    <img [src]="product.file" class="card-img-top mt-3" [alt]="product.name">
+    <app-star [rating]="5"></app-star>
+    <img [src]="product.file" class="card-img-top mt-3" style="border-bottom: 2px solid yellowgreen;" [alt]="product.name">
     <div class="card-body">
-        <app-star [rating]="product.rating"></app-star>
+
         <h4 class="card-title"><strong>{{ product.name }}</strong></h4>
-        <p class="card-text">Sudedamosios dalys {{ product.part }}</p>
-        <p class="card-text">Aprašymas {{ product.count }}</p>
+        <p class="card-text"><b>Sudedamosios dalys: </b> <em>{{ product.part }}</em></p>
+        <p class="card-text"><b>Aprašymas: </b><em>{{ product.count }}</em></p>
         <p class="card-text">
             <small class="text-body-secondary"></small>
         </p>
 
         <div>
-            Autorius: <b> {{ user?.name }}</b>
+            Autorius: {{ user?.name }}
         </div>
     </div>
 </div>

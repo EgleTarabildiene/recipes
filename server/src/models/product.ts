@@ -7,7 +7,7 @@ export interface Product extends RowDataPacket{
     count: string;
     meals_id:number;
     users_id:number;
-    rating:number;
+   
     file:string;
     
 }
