@@ -1,5 +1,5 @@
 <div class="card mt-3">
-    <div class="card-header">Pridėti naują recepta</div>
+    <div class="card-header" style="background-color: rgba(144, 238, 144, 0.3);"><strong>Pridėti naują recepta</strong></div>
     <div class="card-body">
         <form action="" [formGroup]="fileForm" (ngSubmit)="onSubmitForm()">
             <div class="mb-3">
@@ -7,7 +7,7 @@
                 <input type="text" class="form-control" name="name" value="" minlength="2" maxlength="64" required formControlName="name">
             </div>
             <div class="mb-3">
-                <label for="meals_id" class="form-label">Tipas</label>
+                <label for="meals_id" class="form-label">Patiekalo kategorija</label>
                 <select class="form-control" id="meals_id" name="meals_id" formControlName="meals_id">
                     <option *ngFor="let meal of meals; let i = index" [value]="meal.id">{{ meal.name }}</option>
                 </select>
@@ -15,7 +15,7 @@
             <div class="mb-3">
                 <label for="" class="form-label">Sudetis</label>
                 <input type="text" class="form-control" name="part" value="" formControlName="part">
-                <label for="" class="form-label">Paruosimo eiga</label>
+                <label for="" class="form-label">Paruošimo eiga</label>
                 <input type="text" class="form-control" name="count" value="" formControlName="count">
             </div>
 

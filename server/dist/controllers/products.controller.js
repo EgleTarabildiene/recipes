@@ -87,9 +87,9 @@ class ProductsController {
                 });
             }
             const url = req.protocol + "://" + req.get("host") + "/img/" + req.file.filename;
-            const sql = "INSERT INTO products (name, part, count, meals_id, file) VALUES ( ?, ?, ?, ?, ? )";
+            const sql = "INSERT INTO products (name, part, count, meals_id, rating, file) VALUES ( ?, ?, ?, ?, ?, ? )";
             try {
-                yield connect_1.pool.query(sql, [req.body.name, req.body.part, req.body.count, req.body.meals_id, req.body.users_id, url]);
+                yield connect_1.pool.query(sql, [req.body.name, req.body.part, req.body.count, req.body.meals_id, req.body.users_id, req.body.rating, url]);
                 res.status(201).json({
                     "success": true
                 });
@@ -103,9 +103,9 @@ class ProductsController {
     }
     static update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sql = "UPDATE products SET name=?, part=?, count=?, meals_id=?, users_id=?, file=? WHERE id=?";
+            const sql = "UPDATE products SET name=?, part=?, count=?, meals_id=?, users_id=?, rating=?, file=? WHERE id=?";
             try {
-                yield connect_1.pool.query(sql, [req.body.name, req.body.part, req.body.count, req.body.meals_id, req.body.users_id, req.body.id]);
+                yield connect_1.pool.query(sql, [req.body.name, req.body.part, req.body.count, req.body.meals_id, req.body.users_id, req.body.rating, req.body.id]);
                 res.json({
                     "success": true
                 });

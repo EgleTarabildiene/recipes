@@ -7,6 +7,7 @@ export class Product {
         public count:string,
         public meals_id:number,  
         public users_id:number,  
+        public rating:number,  
        public file?:string,
        public id?:number,  
        

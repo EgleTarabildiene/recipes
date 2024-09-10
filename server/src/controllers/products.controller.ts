@@ -11,6 +11,7 @@ const [result]=await pool.query<Product[]>(sql);
       res.json(result);
     }
 
+
  static async filterProducts( req:any, res:any){
         if (req.user.type>2){
             return res.status(400).json({
@@ -31,8 +32,7 @@ const [result]=await pool.query<Product[]>(sql);
          text: "Neturite teisiu"
       });
    }
-
-   const sql = `
+const sql = `
        SELECT p.* FROM products p
       LEFT JOIN meals m ON p.meals_id = m.id 
       WHERE m.id = ?
@@ -49,8 +49,7 @@ const [result]=await pool.query<Product[]>(sql);
          text: "Neturite teisiu"
       });
    }
-
-   const sql = `
+const sql = `
     SELECT p.* FROM products p
       LEFT JOIN users u ON p.users_id = u.id 
       WHERE u.id = ?
@@ -87,10 +86,10 @@ const [result]=await pool.query<Product[]>(sql);
 
 
      const url=req.protocol+"://"+req.get("host")+"/img/"+req.file.filename ;
-const sql="INSERT INTO products (name, part, count, meals_id, file) VALUES ( ?, ?, ?, ?, ? )";
+const sql="INSERT INTO products (name, part, count, meals_id, rating, file) VALUES ( ?, ?, ?, ?, ?, ? )";
         
  try {
-        await pool.query(sql, [req.body.name, req.body.part, req.body.count, req.body.meals_id, req.body.users_id, url]);
+        await pool.query(sql, [req.body.name, req.body.part, req.body.count, req.body.meals_id, req.body.users_id, req.body.rating, url]);
         res.status(201).json({
             "success": true
         });
@@ -103,10 +102,10 @@ const sql="INSERT INTO products (name, part, count, meals_id, file) VALUES ( ?, 
 
 
  static async update(req:any, res:any){
-        const sql="UPDATE products SET name=?, part=?, count=?, meals_id=?, users_id=?, file=? WHERE id=?";
+        const sql="UPDATE products SET name=?, part=?, count=?, meals_id=?, users_id=?, rating=?, file=? WHERE id=?";
  
   try{
-            await pool.query(sql, [req.body.name, req.body.part, req.body.count, req.body.meals_id, req.body.users_id, req.body.id]);
+            await pool.query(sql, [req.body.name, req.body.part, req.body.count, req.body.meals_id, req.body.users_id, req.body.rating, req.body.id]);
         
    res.json({
             "success":true

@@ -1,7 +1,7 @@
 <div *ngIf="product" class="card m-3">
     <img [src]="product.file" class="card-img-top mt-3" [alt]="product.name">
     <div class="card-body">
-        <app-star [rating]="3"></app-star>
+        <app-star [rating]="product.rating"></app-star>
         <h4 class="card-title"><strong>{{ product.name }}</strong></h4>
         <p class="card-text">Sudedamosios dalys {{ product.part }}</p>
         <p class="card-text">Aprašymas {{ product.count }}</p>

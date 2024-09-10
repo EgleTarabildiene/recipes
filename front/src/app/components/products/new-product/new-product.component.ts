@@ -58,6 +58,7 @@ export class NewProductComponent {
       'count': new FormControl(null),
       'meals_id': new FormControl(null),
       'users_id': new FormControl(null),
+      'rating': new FormControl(null),
       'file': new FormControl(null),
       
     });
@@ -73,7 +74,7 @@ export class NewProductComponent {
     this.errorText = 'Please select a meal type.';
     return;
   }
-    this.productsService.addProduct(new Product(values.name, values.part, values.count, values.meals_id, values.users_id), values.file).subscribe((result)=>{
+    this.productsService.addProduct(new Product(values.name, values.part, values.count, values.meals_id, values.users_id, values.rating), values.file).subscribe((result)=>{
       this.router.navigate(["products", "list"]);
      
     });

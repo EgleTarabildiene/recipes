@@ -49,6 +49,7 @@ public addProduct(product:Product,  filesFile:any) {
  postFile.append('count', product.count!);
  postFile.append('meals_id', product.meals_id?.toString());
  postFile.append('users_id', product.users_id?.toString());
+ postFile.append('rating', product.count!);
  postFile.append('file', filesFile);
 
 

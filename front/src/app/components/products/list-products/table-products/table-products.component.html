@@ -5,9 +5,9 @@
             <div class="card-header" style="background-color: rgba(144, 238, 144, 0.3); text-align: center;"><strong>{{ product.name }}</strong></div>
             <div class="card-body">
                 <td>
-                    <img [src]="product.file" alt="{{ product.name }}" class="img-thumbnail" style="min-width: 30px;" [routerLink]="['recipe', product.id ]" />
+                    <img [src]="product.file" alt="{{ product.name }}" class="img-thumbnail fonas" style="min-width: 30px;" [routerLink]="['recipe', product.id ]" />
                 </td>
-                <app-star [rating]="0"></app-star>
+                <app-star [rating]="product.rating"></app-star>
                 <div>
                     {{ getMealName(product.meals_id) }}
                 </div>
