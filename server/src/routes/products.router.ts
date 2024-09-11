@@ -13,7 +13,7 @@ productsRouter.get("/mealId/:mealId", authMiddleware, editProductsMiddleware, Pr
 productsRouter.get("/userId/:userId", authMiddleware, editProductsMiddleware, ProductsController.myMeal);
 productsRouter.get("/:id",authMiddleware, editProductsMiddleware, ProductsController.getProduct);
 productsRouter.post("/",authMiddleware, editProductsMiddleware, ProductsController.insert);
-productsRouter.put("/",authMiddleware, editProductsMiddleware, ProductsController.update);
+
 productsRouter.delete("/:id",authMiddleware, editProductsMiddleware, ProductsController.delete);
 
 const storageFiles=multer.diskStorage({
@@ -30,7 +30,7 @@ const storageFiles=multer.diskStorage({
 })
 productsRouter.post("/:id", authMiddleware, multer({storage:storageFiles}).single('file'), ProductsController.insert);
 
-
+productsRouter.put("/:id",authMiddleware, multer({storage:storageFiles}).single('file'), ProductsController.update);
 
 
 

@@ -17,7 +17,6 @@ productsRouter.get("/mealId/:mealId", auth_middleware_1.authMiddleware, edit_pro
 productsRouter.get("/userId/:userId", auth_middleware_1.authMiddleware, edit_products_middleware_1.editProductsMiddleware, products_controller_1.ProductsController.myMeal);
 productsRouter.get("/:id", auth_middleware_1.authMiddleware, edit_products_middleware_1.editProductsMiddleware, products_controller_1.ProductsController.getProduct);
 productsRouter.post("/", auth_middleware_1.authMiddleware, edit_products_middleware_1.editProductsMiddleware, products_controller_1.ProductsController.insert);
-productsRouter.put("/", auth_middleware_1.authMiddleware, edit_products_middleware_1.editProductsMiddleware, products_controller_1.ProductsController.update);
 productsRouter.delete("/:id", auth_middleware_1.authMiddleware, edit_products_middleware_1.editProductsMiddleware, products_controller_1.ProductsController.delete);
 const storageFiles = multer_1.default.diskStorage({
     destination: (req, file, cb) => {
@@ -30,3 +29,4 @@ const storageFiles = multer_1.default.diskStorage({
     }
 });
 productsRouter.post("/:id", auth_middleware_1.authMiddleware, (0, multer_1.default)({ storage: storageFiles }).single('file'), products_controller_1.ProductsController.insert);
+productsRouter.put("/:id", auth_middleware_1.authMiddleware, (0, multer_1.default)({ storage: storageFiles }).single('file'), products_controller_1.ProductsController.update);
