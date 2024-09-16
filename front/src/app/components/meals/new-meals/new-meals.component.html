@@ -1,16 +1,43 @@
+<div class="back" style="padding-top:100px;"></div>
 <app-error [isError]="isError" [text]="errorText"></app-error>
 <div class="card mt-3">
-    <div class="card-header">Pridėti naują prekę</div>
+    <div class="card-header" style="background-color:rgb(42, 131, 109)">ADD NEW MEAL TYPE</div>
     <div class="card-body">
         <form (ngSubmit)="mealSubmit(f)" #f="ngForm">
             <div class="mb-3">
-                <label for="" class="form-label">Pavadinimas</label>
+                <label for="" class="form-label">Meal type name</label>
                 <input type="text" class="form-control" name="name" value="" ngModel minlength="2" maxlength="64" required #inputName="ngModel">
             </div>
             <div *ngIf="!inputName.valid && inputName.touched">Įvestas blogas pavadinimas</div>
 
-            <button class="btn btn-success" type="submit">Pridėti</button>
+            <button class="btn btn-success" type="submit">ADD</button>
         </form>
 
+    </div>
+</div>
+
+
+<div class="card" style="margin-bottom: 50px; margin-top: 50px;">
+    <div class="card-header" style="background-color:rgb(42, 131, 109)">TYPE</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>MEAL TYPE</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let meal of meals; let i=index;">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ meal.name }}</td>
+
+
+
+                </tr>
+
+            </tbody>
+        </table>
     </div>
 </div>

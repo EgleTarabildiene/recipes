@@ -18,7 +18,7 @@ import { User } from '../../../../models/user';
 })
 export class RecipeComponent implements OnInit {
     public user:User|null;
-  
+  salad2: string = 'assets/img/salad2.jpg';
   public product: Product | null = null;
 
   constructor(private route: ActivatedRoute,

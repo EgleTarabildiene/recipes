@@ -1,30 +1,49 @@
-<swiper-container class="mySwiper mt-3 img-thumbnail" space-between="30" slides-per-view="auto" pagination="true" pagination-clickable="true">
-    <swiper-slide><img [src]="salad1" /> Darzoviu salotos</swiper-slide>
-    <swiper-slide><img [src]="salad2" />Vaisiu salotos</swiper-slide>
-    <swiper-slide><img [src]="fruit3" />Rinkis kas sveika</swiper-slide>
+<h1>RECIPES OF THE WEEK</h1>
 
+
+
+
+<swiper-container autoplay-disable-on-interaction="false" loop="true" space-between="30" slides-per-view="2" pagination="true" pagination-clickable="true">
+    <swiper-slide>
+        <img [src]="salad1" />
+        <div class="text-overlay">
+            <h2 class="title">Salad 1</h2>
+            <p class="subtitle">Fresh and Healthy</p>
+        </div>
+    </swiper-slide>
+    <swiper-slide>
+        <img [src]="salad2" />
+        <div class="text-overlay">
+            <h2 class="title">Salad 2</h2>
+            <p class="subtitle">Tasty and Delicious</p>
+        </div>
+    </swiper-slide>
+    <swiper-slide>
+        <img [src]="fruit3" />
+        <div class="text-overlay">
+            <h2 class="title">Fruit Mix</h2>
+            <p class="subtitle">Sweet and Juicy</p>
+        </div>
+    </swiper-slide>
+    <!-- Add more slides as needed -->
 </swiper-container>
 
-
-<h2 class="mt-5" style="text-align: center;">ŠIANDIENOS PATIEKALAS</h2>
-
-<div class="card mb-3" style="max-width: 700px;">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img [src]="salad1" style="max-width: 100%;" alt="...">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-body-secondary"></small></p>
-            </div>
+<section class="daySection">
+    <div class="miniDay">
+        <div class="dayText">
+            <h2>OUR PICK OF THE DAY</h2>
+            <p>It`s his Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque, exercitationem!</p>
         </div>
     </div>
-</div>
+    <div class="miniDay">
+        <div class="dayImg">
+            <img [src]="fruit3" />
 
-<h3 class="mt-5" style="text-align: center;">POPULIARIAUSI RECEPTAI</h3>
+        </div>
 
+    </div>
+
+</section>
 
 
 
@@ -32,20 +51,20 @@
     <div class="col-sm-6 mb-3 mb-sm-0">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Ką dabar gaminame:</h5>
-                <img [src]="salad1" style="max-width: 70%;" />
-                <p class="card-text">Salotos</p>
-                <a href="#" class="btn btn-success">Go somewhere</a>
+                <h5 class="card-title">Brukniu pyragas:</h5>
+                <img [src]="pyra" style="max-width: 70%;" />
+                <p class="card-text">Desertai</p>
+                <a href="#" class="btn btn-success">Grižti</a>
             </div>
         </div>
     </div>
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Ką dabar gaminame:</h5>
-                <img [src]="salad2" style="max-width: 70%;" />
-                <p class="card-text">Vaisiai</p>
-                <a href="#" class="btn btn-success">Go somewhere</a>
+                <h5 class="card-title">Jautienos Kukuliai:</h5>
+                <img [src]="kukul" style="max-width: 70%;" />
+                <p class="card-text">Pagrindinis patiekalas</p>
+                <a href="#" class="btn btn-success">Grižti</a>
             </div>
         </div>
     </div>

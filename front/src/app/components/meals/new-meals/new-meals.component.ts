@@ -5,6 +5,7 @@ import { ErrorComponent } from '../../helper/error/error.component';
 import { ProductsService } from '../../../services/products.service';
 import { Router } from '@angular/router';
 import { MealsService } from '../../../services/meals.service';
+import { Meal } from '../../../models/meal';
 
 @Component({
   selector: 'app-new-meals',
@@ -15,13 +16,15 @@ import { MealsService } from '../../../services/meals.service';
 })
 export class NewMealsComponent {
 
-
+ public meals:Meal[]=[];
  public isError=false;
   public errorText="";
 
 
 constructor (private mealsService:MealsService, private router:Router){
-
+    mealsService.getMeals().subscribe((data)=>{
+this.meals=data;
+});
   }
 
 

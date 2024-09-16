@@ -20,9 +20,9 @@ export class HomePageComponent {
 fruit3: string = 'assets/img/fruit33.jpg'; // Path to your logo
 salad1: string = 'assets/img/salad1.jpg'; // Path to your logo
 salad2: string = 'assets/img/salad2.jpg'; // Path to your logo
-
-
-
+mexi:string = 'assets/img/MexicanChilliBeanSoup.jpg';
+kukul: string = 'assets/img/Jautienos kukuliai.webp';
+pyra: string= 'assets/img/pyragas-gervuogiu.webp';
   constructor (private authService:AuthService){
     this.user=authService.user;
 

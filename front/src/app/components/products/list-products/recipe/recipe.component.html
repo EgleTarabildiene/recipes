@@ -1,3 +1,41 @@
+<div class="back" style="padding-top:200px;"></div>
+
+
+<div *ngIf="product">
+    <section class="recipeContainer ">
+
+        <div class="miniRecipe ">
+            <div class="foto">
+                <img [src]="product.file" class="card-img-top mt-3" style="border-bottom: 2px solid yellowgreen;" [alt]="product.name">
+            </div>
+        </div>
+
+
+        <div class="miniRecipe">
+            <div class="text">
+                <h2>{{ product.name }}</h2>
+                <div class="sudetis">
+
+
+                    <h4>INGRIDIENTS:</h4>
+                    <p>{{ product.part }}</p>
+                </div>
+                <h4>METHOD:</h4>
+                <p>{{ product.count }}</p>
+
+
+            </div>
+        </div>
+
+
+
+    </section>
+</div>
+
+
+<!--
+
+
 <div *ngIf="product" class="card m-3">
     <app-star [rating]="5"></app-star>
     <img [src]="product.file" class="card-img-top mt-3" style="border-bottom: 2px solid yellowgreen;" [alt]="product.name">
@@ -21,7 +59,23 @@
 
 
 
-<!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div *ngIf="product" class="card m-3">

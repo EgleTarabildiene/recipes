@@ -1,15 +1,99 @@
-.card-img-top {
-    width: 40%;
-    /* Nustatomas paveikslėlio plotis (pusė ekrano pločio) */
-    height: auto;
-    /* Automatiškai nustato aukštį, kad išlaikytų proporcijas */
-    display: block;
-    /* Kad paveikslėlis būtų bloko elementas */
-    margin: 0 auto;
-    /* Centruoja paveikslėlį horizontaliai */
+/*
+<section class="recipeContainer">
+<div class="miniRecipe">
+<div class="foto"><img [src]="salad2" /></div>
+</div><div class="miniRecipe">
+<div class="text"><h2>Pavadinimas</h2>
+<h5>sudetis </h5><p>sudetis</p><h5>gamiba</h5>
+<p>gamyba </p></div></div></section>
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-.card-body {
-    text-align: center;
-    /* Centruoja tekstą */
+
+.recipeContainer{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
 }
+
+.poppins-thin-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.miniRecipe{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+
+}
+
+
+
+.text{
+    width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+
+gap:20px;
+background-color: aliceblue;
+padding: 50px 30px;
+border-radius: 20px;
+}
+
+
+
+
+.recipeContainer h2{
+    font-weight: 800;
+    font-family: "Poppins", sans-serif;
+    color: rgb(51, 113, 121);
+}
+
+h4{
+    font-family: "Poppins", sans-serif;
+        color: rgb(51, 113, 121);
+        text-align: center;
+        padding-bottom: 5px;
+}
+
+
+p{
+background-color: white;
+border-radius: 15px;
+padding: 5px;
+    font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: italic;
+}
+
+
+
+
+.miniRecipe foto{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.foto img{
+    width: 400px;
+    border-radius: 15px;
+}
+

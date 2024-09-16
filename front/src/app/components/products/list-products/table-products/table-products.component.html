@@ -1,4 +1,29 @@
-<div class="row">
+<section class="recipes">
+
+    <h1>FEATURED RECIPES</h1>
+    <div class="recipe-section">
+        <div class="recipe-card " *ngFor="let product of products; let i = index;">
+            <img [src]="product.file" alt="{{ product.name }}" [routerLink]="['recipe', product.id ]" />
+
+            <h2>{{ product.name }}</h2>
+            <p>{{ getMealName(product.meals_id) }}</p>
+            <div class="card-footer" *ngIf="authService.canEditUsers()">
+                <div class="d-flex justify-content-between">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</section>
+
+
+
+
+<!--<div class="row">
     <div class="col-md-4 mt-3" *ngFor="let product of products; let i = index;">
         <div class="card">
 
@@ -13,15 +38,16 @@
                 </div>
 
             </div>
-            <div class="card-footer" *ngIf="authService.canEdit()">
+            <div class="card-footer" *ngIf="authService.canEditUsers()">
                 <div class="d-flex justify-content-between">
-                    <a class="btn btn-success flex-fill me-1" style="min-width: 30px;" [routerLink]="['/products', product.id]">Redaguoti</a>
+                    <a class="btn btn-success flex-fill me-1" *ngIf="authService.canEdit()" style="min-width: 30px;" [routerLink]="['/products', product.id]">Redaguoti</a>
                     <button class="btn btn-danger flex-fill ms-1" (click)="deleteProduct(product.id!)">Ištrinti</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+-->
 
 
 

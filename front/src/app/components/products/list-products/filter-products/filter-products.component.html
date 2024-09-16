@@ -1,19 +1,62 @@
-<!-- Filter by product name -->
-<div class="row">
+<section class="hero">
+    <img [src]="fruit3" style="width: 100%; height:400px" />
+    <h2 class="h2">EXPLORE OUR RECIPES</h2>
+    <div class="howHelpContainer">
+
+        <div class="howHelpBtnContainer">
+            <form action="#" class="search-box">
+                <input type="text" class="form-control" [(ngModel)]="filter" placeholder="Pavadinimas">
+                <button class="btn btn-success" (click)="onFilter()">Search</button>
+            </form>
+        </div>
+
+
+        <div class="howHelpBtnContainer">
+            <select id="mealSelect" class="search-box" [(ngModel)]="selectedMealId">
+                <option value="">Pasirinkite...</option>
+                <option *ngFor="let meal of meals" [value]="meal.id">{{ meal.name }}</option>
+            </select>
+            <button class="btn btn-success" (click)="onMealSelect()">Filter</button>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+<div class="row ">
     <div class="col-md-4 mt-3"></div>
-    <div class="card " style="background-color: rgba(226, 238, 54, 0.158); text-align: center;">
+    <div class="card " style="background-color: rgba(226, 238, 54, 0.055); text-align: center;">
         <div class="card-body">
             <div class="mb-3">
                 <input type="text" class="form-control" [(ngModel)]="filter" placeholder="Pavadinimas">
             </div>
-            <button class="btn btn-success" (click)="onFilter()">Filtruoti pagal pavadinimą</button>
+            <button class="btn btn-success" (click)="onFilter()">Paieška</button>
         </div>
     </div>
 
-    <div class="card mt-3">
+    <div class="card mt-3 " style="background-color: rgba(226, 238, 54, 0.055);">
         <div class="card-body">
             <div class="mb-3">
-                <label for="mealSelect">Recepto kategorija</label>
+                <label for="mealSelect" style="text-align: center;">Recepto kategorija</label>
                 <select id="mealSelect" class="form-control" [(ngModel)]="selectedMealId">
                     <option value="">Pasirinkite...</option>
                     <option *ngFor="let meal of meals" [value]="meal.id">{{ meal.name }}</option>
@@ -28,7 +71,21 @@
 
 
 
-<!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="row">

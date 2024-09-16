@@ -21,7 +21,7 @@ import { FilterProductsComponent } from '../filter-products/filter-products.comp
 })
 export class TableProductsComponent implements OnChanges {
   
-    
+    salad1: string = 'assets/img/salad1.jpg'; // Path to your logo
   
   faCoffee = faCoffee;
   public meals:Meal[]=[];

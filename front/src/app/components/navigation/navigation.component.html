@@ -1,3 +1,63 @@
+<header class="container-navi">
+    <a class="navbar-brand" routerLink="/">
+        <h1 class="logo">Delicous </h1>
+    </a>
+
+    <nav>
+        <div class="menu-icon"></div>
+        <ul class="nav-list">
+            <li><a routerLink="/">HOME</a></li>
+
+
+
+            <li><a routerLink="/products/list">RECIPES</a></li>
+
+            <li><a aria-current="page" routerLink="/products/new">ADD RECIPE</a></li>
+            <li>
+                <a aria-current="page" routerLink="/meals/list"></a>
+            </li>
+            <li *ngIf="authService.canEdit()">
+                <a aria-current="page" routerLink="/meals/new">ADD MEAL</a>
+            </li>
+
+
+            <li *ngIf="authService.canEditUsers()">
+                <a routerLink="users/list">USERS LIST</a>
+            </li>
+
+
+            <li><a class="reg" routerLink="/auth/signin" *ngIf="!isLoggedin">
+                    SING UP
+
+                </a></li>
+            <li><a class="btn btn-success" routerLink="/auth/login" *ngIf="!isLoggedin">
+                    LOGIN
+
+                </a></li>
+
+
+
+            <li><a class="profile" routerLink="/profile/main" *ngIf="isLoggedin">
+                    PROFILE
+                </a></li>
+            <li><button class="logOut" (click)="logoutClick()" *ngIf="isLoggedin">
+                    LOG OUT
+
+                </button></li>
+        </ul>
+    </nav>
+</header>
+
+
+
+
+
+
+<!--
+
+
+
+
 <nav class="navbar navbar-expand-lg" style="background-color: rgba(144, 238, 144, 0.3)">
     <a class="navbar-brand mx-3"><img [src]="">
     </a>
@@ -49,3 +109,14 @@
         </div>
     </div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+-->

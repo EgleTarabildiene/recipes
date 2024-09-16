@@ -16,8 +16,9 @@ export class FilterProductsComponent implements OnInit {
   public filter: string = "";
   public selectedMealId: string = "";
   public meals: Meal[] = [];
+  fruit3: string = 'assets/img/fruit33.jpg';
 
-
+salad1: string = 'assets/img/salad1.jpg'; // Path to your logo
   @Output() filterChanged = new EventEmitter<string>();
   @Output() mealChanged = new EventEmitter<string>();
 
