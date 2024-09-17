@@ -1,32 +1,32 @@
-<div class="back" style="padding-top:200px;"></div>
+<div class="back" style="padding-top:50px;"></div>
 <div class="row">
     <!-- Vartotojo informacija -->
     <div class="col-md-3 mt-3">
-        <div class="card">
-            <div class="card-header" style="background-color: rgba(144, 238, 144, 0.3); text-align: center;">Vartotojas</div>
+        <div class="card" style="margin-top:75px;">
+            <div class="card-header" style="background-color: rgb(51, 113, 121); text-align: center;">USER</div>
             <div class="card-body">
                 <img [src]="user?.img" alt="" class="img-fluid">
                 <hr>
                 <div>
-                    Vardas: <b>{{ user?.name }}</b>
+                    Name: <b>{{ user?.name }}</b>
                 </div>
                 <div>
-                    El. pašto adresas: <b>{{ user?.email }}</b>
+                    Email: <b>{{ user?.email }}</b>
                 </div>
             </div>
-            <a class="btn btn-success mx-3 mb-3" routerLink="/profile">
-                Redaguoti
+            <a class="btn btn-success  mx-3 mb-3" style="background-color: rgb(51, 113, 121);" routerLink="/profile">
+                Edit
             </a>
         </div>
     </div>
 
     <!-- Vartotojo sukurti produktai -->
     <div class="col-md-7 mt-3">
-        <h2 class="mt-3" style="text-align: center;">Mano receptai</h2>
+        <h2 class="mt-3" style="text-align: center;">MY RECIPES</h2>
         <div class="row">
             <div class="col-md-6 mt-3" *ngFor="let product of products">
                 <div class="card">
-                    <div class="card-header" style="background-color: rgba(144, 238, 144, 0.3); text-align: center;">
+                    <div class="card-header" style="background-color: rgb(51, 113, 121); text-align: center;">
                         <strong>{{ product.name }}</strong>
                     </div>
                     <div class="card-body">
@@ -35,8 +35,8 @@
                     </div>
                     <div class="card-footer" *ngIf="authService.canViewData()">
                         <div class="d-flex justify-content-between">
-                            <a class="btn btn-success flex-fill me-1" [routerLink]="['/products', product.id]">Redaguoti</a>
-                            <button class="btn btn-danger flex-fill ms-1" (click)="deleteProduct(product.id!)">Ištrinti</button>
+                            <a style="background-color: rgb(51, 113, 121);" class="btn btn-success flex-fill me-1" [routerLink]="['/products', product.id]">EDIT</a>
+                            <button class="btn btn-danger flex-fill ms-1" (click)="deleteProduct(product.id!)">DELETE</button>
                         </div>
                     </div>
                 </div>

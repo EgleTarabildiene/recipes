@@ -21,8 +21,14 @@ fruit3: string = 'assets/img/fruit33.jpg'; // Path to your logo
 salad1: string = 'assets/img/salad1.jpg'; // Path to your logo
 salad2: string = 'assets/img/salad2.jpg'; // Path to your logo
 mexi:string = 'assets/img/MexicanChilliBeanSoup.jpg';
+pina:string = 'assets/img/Pina-500x500.jpg';
+bolonesa:string = 'assets/img/Vegan-lentil-bolognese-500x500.webp';
 kukul: string = 'assets/img/Jautienos kukuliai.webp';
 pyra: string= 'assets/img/pyragas-gervuogiu.webp';
+herby: string= 'assets/img/Herby-lentil-salad-500x446.webp';
+chicken: string= 'assets/img/BrownStewChicken.webp';
+keksas: string= 'assets/img/Keksas-500x500.webp.';
+avokado: string= 'assets/img/HFG-IMAGES-600-x-450-px-27-500x500.webp.';
   constructor (private authService:AuthService){
     this.user=authService.user;
 

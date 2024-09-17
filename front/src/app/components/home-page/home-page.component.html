@@ -1,80 +1,121 @@
-<h1>RECIPES OF THE WEEK</h1>
+<section class="fonas">
+
+    <h1>RECIPES OF THE WEEK</h1>
 
 
 
 
-<swiper-container autoplay-disable-on-interaction="false" loop="true" space-between="30" slides-per-view="2" pagination="true" pagination-clickable="true">
-    <swiper-slide>
-        <img [src]="salad1" />
-        <div class="text-overlay">
-            <h2 class="title">Salad 1</h2>
-            <p class="subtitle">Fresh and Healthy</p>
-        </div>
-    </swiper-slide>
-    <swiper-slide>
-        <img [src]="salad2" />
-        <div class="text-overlay">
-            <h2 class="title">Salad 2</h2>
-            <p class="subtitle">Tasty and Delicious</p>
-        </div>
-    </swiper-slide>
-    <swiper-slide>
-        <img [src]="fruit3" />
-        <div class="text-overlay">
-            <h2 class="title">Fruit Mix</h2>
-            <p class="subtitle">Sweet and Juicy</p>
-        </div>
-    </swiper-slide>
-    <!-- Add more slides as needed -->
-</swiper-container>
-
-<section class="daySection">
-    <div class="miniDay">
-        <div class="dayText">
-            <h2>OUR PICK OF THE DAY</h2>
-            <p>It`s his Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque, exercitationem!</p>
-        </div>
-    </div>
-    <div class="miniDay">
-        <div class="dayImg">
+    <swiper-container autoplay-disable-on-interaction="false" loop="true" space-between="30" slides-per-view="3" pagination="true" pagination-clickable="true">
+        <swiper-slide>
+            <img [src]="pina" />
+            <div class="text-overlay">
+                <h2 class="title">Pina colada</h2>
+                <p class="subtitle">Fresh and Healthy</p>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <img [src]="kukul" />
+            <div class="text-overlay">
+                <h2 class="title">Beef meatballs with basil</h2>
+                <p class="subtitle">Tasty and Delicious</p>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <img [src]="pyra" />
+            <div class="text-overlay">
+                <h2 class="title">Apple and blackberry pie</h2>
+                <p class="subtitle">Sweet and Juicy</p>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
             <img [src]="fruit3" />
+            <div class="text-overlay">
+                <h2 class="title">Beef meatballs with basil</h2>
+                <p class="subtitle">Tasty and Delicious</p>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <img [src]="herby" />
+            <div class="text-overlay">
+                <h2 class="title">Lentil salad</h2>
+                <p class="subtitle">Sweet and Juicy</p>
+            </div>
+        </swiper-slide>
+        <!-- Add more slides as needed -->
+    </swiper-container>
 
-        </div>
-
-    </div>
 
 </section>
 
 
 
-<div class="row mt-5">
-    <div class="col-sm-6 mb-3 mb-sm-0">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Brukniu pyragas:</h5>
-                <img [src]="pyra" style="max-width: 70%;" />
-                <p class="card-text">Desertai</p>
-                <a href="#" class="btn btn-success">Grižti</a>
-            </div>
+
+<section class="daySection">
+    <div class="miniDay">
+
+        <div class="dayImg">
+            <div class="one"><img [src]="bolonesa" /></div>
+            <!-- Text below the image -->
+            <p>Vegan lentil bolognese</p>
+        </div>
+        <!-- Text next to the image -->
+        <div class="dayText">
+            <h2>OUR PICK OF THE DAY</h2>
+            <p>Discover the seasonal recipes our users can't get enough.</p>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="projectDoneContainer">
+    <h2>POPULAR RECIPE COLECTIONS</h2>
+    <div class="projectDoneCardsContainer">
+        <div class="card1 ">
+            <div class="card2"><img [src]="pina" /></div>
+            <p>Pina Colada</p>
+
+        </div>
+        <div class="card1">
+            <div class="card2"> <img [src]="herby" /></div>
+            <p>Herby lentil salad</p>
+
+        </div>
+        <div class="card1 ">
+            <div class="card2"> <img [src]="pyra" /></div>
+            <p>Blubery pie</p>
+
         </div>
     </div>
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Jautienos Kukuliai:</h5>
-                <img [src]="kukul" style="max-width: 70%;" />
-                <p class="card-text">Pagrindinis patiekalas</p>
-                <a href="#" class="btn btn-success">Grižti</a>
-            </div>
-        </div>
-    </div>
-</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div class="container my-5">
     <!-- Footer -->
-    <footer class="text-center text-lg-start text-black" style="background-color: rgba(144, 238, 144, 0.3)">
+    <footer class="text-center text-lg-start text-black" style="background-color: #f8f8f8">
         <!-- Grid container -->
         <div class="container p-4 pb-0">
             <!-- Section: Links -->
@@ -84,10 +125,10 @@
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">
-                            Autore
+                            About us
                         </h6>
                         <p>
-                            Eglė Tarabildienė
+
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -96,7 +137,7 @@
 
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold text-black">Naudota</h6>
+                        <h6 class="text-uppercase mb-4 font-weight-bold text-black">Privacy Policy</h6>
                         <p>
                             <a class="text-black"></a>
                         </p>
@@ -119,17 +160,17 @@
 
                     <!-- Grid column -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Kontaktai</h6>
-                        <p><i class="fas fa-home mr-3"></i>Lietuva</p>
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Terms & Conditions</h6>
+                        <p><i class="fas fa-home mr-3"></i></p>
 
-                        <p><i class="fas fa-phone mr-3"></i> +37064892060</p>
+                        <p><i class="fas fa-phone mr-3"></i> </p>
 
                     </div>
                     <!-- Grid column -->
 
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Git hub</h6>
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Contact Us</h6>
 
                         <!-- Facebook -->
                         <a href="#!" role="button"><i class="fab fa-facebook-f"></i></a>

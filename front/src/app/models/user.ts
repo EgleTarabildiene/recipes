@@ -16,11 +16,11 @@ export class User{
     public getTypeName():String{
         switch (this.type) {
             case 0:
-                return "Administratorius"
+                return "Admin"
             case 1:
-                return "Narys";
+                return "User";
             case 2: 
-                return "Vartotojas";
+                return "Viewer";
 
         }
         return "Nežinomas";

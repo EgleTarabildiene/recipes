@@ -14,6 +14,9 @@ export class NavigationComponent {
   public isLoggedin:boolean=false;
   salad2: string = 'assets/img/salad2.jpg'; // Path to your logo
 
+
+
+
   constructor (public authService:AuthService, private router:Router){
     if (authService.isLoggedin()){
       this.isLoggedin=true;
@@ -32,5 +35,8 @@ export class NavigationComponent {
     this.isLoggedin=false;
     this.router.navigate(["/"]);
   }
+
+
+  
 
 }

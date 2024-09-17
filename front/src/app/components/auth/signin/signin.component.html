@@ -1,29 +1,31 @@
-<div class="row mt-3">
-    <div class="col-md-6 offset-md-3">
+<div class="back"></div>
+<div class="row mt-3" style="padding: 100px; height: 100vh; display: flex; align-items: center;">
+    <div class="col-md-6">
         <div class="card">
-            <div class="card-header">Registruotis į sistemą</div>
+            <div class="card-header" style="background-color:rgb(42, 131, 109)">Register</div>
             <div class="card-body">
                 <form (ngSubmit)="onRegister(f)" #f="ngForm">
                     <div class="mb-3">
-                        <label class="form-label">El. pašto adresas</label>
+                        <label class="form-label">Email</label>
                         <input type="text" name="email" class="form-control" ngModel required maxlength="64" email>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Vartotojo vardas</label>
+                        <label class="form-label">First Name</label>
                         <input type="text" name="name" class="form-control" ngModel minlength="2" maxlength="64" pattern="[a-zA-Z]*">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Slaptažodis</label>
+                        <label class="form-label">Password</label>
                         <input type="password" name="password" class="form-control" ngModel>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Pakartokite slaptažodį</label>
+                        <label class="form-label">Password Again</label>
                         <input type="password" name="" class="form-control">
                     </div>
                     <button class="btn btn-success">Registruotis</button>
                 </form>
-
+                <div class="col-md-6 image-container">
+                    <img src="{{stra}}" alt="Background image" class="img-fluid">
+                </div>
             </div>
+
         </div>
-    </div>
-</div>

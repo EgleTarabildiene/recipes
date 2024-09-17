@@ -15,8 +15,9 @@ import { ErrorService } from '../../../services/error.service';
 })
 export class LoginComponent {
 
-
-
+pyra: string= 'assets/img/pyragas-gervuogiu.webp';
+stra: string= 'assets/img/straw.jpg';
+herby: string= 'assets/img/Herby-lentil-salad-500x446.webp';
   constructor (private authService:AuthService, private router:Router, private errorService:ErrorService){
 
   }

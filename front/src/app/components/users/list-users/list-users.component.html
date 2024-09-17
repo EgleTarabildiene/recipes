@@ -1,15 +1,17 @@
 <div class="back" style="padding-top:200px;"></div>
 <div class="card">
-    <div class="card-header" style="background-color:rgb(42, 131, 109)">Vartotojų sąrašas</div>
+    <div class="card-header" style="background-color: rgb(51, 113, 121);">
+        <h6>USERS LIST</h6>
+    </div>
     <div class="card-body">
         <table class="table">
             <thead>
                 <tr>
                     <th>Nr</th>
                     <th></th>
-                    <th>El. pašto adresas</th>
-                    <th>Vardas</th>
-                    <th>Tipas</th>
+                    <th>EMAIL</th>
+                    <th>NAME</th>
+                    <th>TYPE</th>
                     <th>Veiksmai</th>
                 </tr>
             </thead>
@@ -21,8 +23,8 @@
                     <td>{{ user.name }}</td>
                     <td>{{ user.getTypeName() }}</td>
                     <td>
-                        <a class="btn btn-success mx-3" [routerLink]="['/users',user.id]">Redaguoti</a>
-                        <a class="btn btn-danger" (click)="onDeleteClick(user.id!)">Ištrinti</a>
+                        <a class="btn btn-success mx-3" style="background-color: rgb(51, 113, 121);" [routerLink]="['/users',user.id]">EDIT</a>
+                        <a class="btn btn-danger" (click)="onDeleteClick(user.id!)">DELETE</a>
                     </td>
 
 

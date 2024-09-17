@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +13,9 @@
     font-style: normal;
 }
 
-
+.logo span{
+   color: rgb(241, 92, 117);
+}
 
 body {
     width: 100%;
@@ -76,11 +80,12 @@ nav ul li button {
     border-radius: 5px;
     padding: 2px;
 }
+
 nav ul li button:hover {
     background-color: transparent;
     text-decoration: none;
     color: rgb(241, 92, 117);
-   
+
 }
 
 
@@ -126,3 +131,174 @@ nav ul li a:hover {
         font-size: 15px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* su suskleidimo funkcija
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #f8f8f8;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    width: 100%;
+    background: #fff;
+    color: rgb(51, 113, 121);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .2);
+    border-radius: 0 0 35px 35px;
+}
+
+.container-navi {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+h1{
+    padding-left: 20px;
+}
+
+.logo {
+    font-size: 30px;
+    color: rgba(112, 207, 184, 0.952);
+    font-weight: 400;
+}
+
+.nav-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    background-color: #fff;
+    width: 100%;
+    text-align: right;
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+}
+
+nav ul li {
+    list-style: none;
+    padding: 10px;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(51, 113, 121);
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li a:hover {
+    color: #333;
+    cursor: pointer;
+}
+
+nav ul li button {
+    background-color: transparent;
+    text-decoration: none;
+    color: rgb(51, 113, 121);
+    border-radius: 5px;
+    padding: 2px;
+}
+
+nav ul li button:hover {
+    background-color: transparent;
+    text-decoration: none;
+    color: rgb(241, 92, 117);
+
+}
+
+
+.logOut{
+    color: rgb(51, 113, 121);
+}
+.logOut{
+color: rgb(241, 92, 117);
+}
+
+
+.menu-icon {
+    font-size: 24px;
+    padding: 20px;
+    text-align: right;
+    cursor: pointer;
+    display: block;
+}
+
+ Paslėpti checkbox'ą 
+    display: none;
+}
+
+Kai checkbox pažymėtas, meniu išsiskleidžia 
+#menu-toggle:checked+.menu-icon+.nav-list {
+    display: flex;
+    max-height: 500px;
+    /* Pakoreguokite šį skaičių pagal savo meniu aukštį 
+
+Desktop stiliai 
+@media only screen and (min-width: 768px) {
+    .menu-icon {
+        display: none;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        max-height: none;
+        background: none;
+    }
+
+    nav ul li {
+        display: inline;
+    }
+}
+
+ Mobilieji įrenginiai 
+@media only screen and (max-width: 768px) {
+    .nav-list {
+        max-height: 0;
+    }
+
+    .nav-list.open {
+        max-height: 500px;
+    }
+}
+
+
+*/

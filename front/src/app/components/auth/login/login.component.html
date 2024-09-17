@@ -1,24 +1,24 @@
-<div class="row mt-3" style="padding: 150px;">
+<div class="row mt-3" style="padding: 50px; background-size: cover; background-position: center; height: 100vh;">
     <div class="col-md-6 offset-md-3">
-
-        <div class="card">
-            <div class="card-header">Prisijungti prie sistemos</div>
+        <div class="card" style="border:none; ">
+            <div class="card-header" style="background-color:rgb(42, 131, 109)">Log in to your account</div>
             <div class="card-body">
                 <form (ngSubmit)="onLogin(f)" #f="ngForm">
                     <div class="mb-3">
-                        <label class="form-label">El. pašto adresas</label>
+                        <label class="form-label">Email</label>
                         <input type="text" name="email" class="form-control" ngModel required maxlength="64" email>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Slaptažodis</label>
+                        <label class="form-label">Password</label>
                         <input type="password" name="password" class="form-control" ngModel>
                     </div>
 
-                    <button class="btn btn-success">Prisijungti</button>
+                    <button class="btn btn-success">LOG IN</button>
                 </form>
-
+                <div class="col-md-6 image-container">
+                    <img src="{{stra}}" alt="Background image" class="img-fluid">
+                </div>
             </div>
         </div>
     </div>
-</div>

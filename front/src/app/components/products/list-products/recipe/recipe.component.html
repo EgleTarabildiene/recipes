@@ -1,4 +1,4 @@
-<div class="back" style="padding-top:200px;"></div>
+<div class="back" style="padding-top:100px;"></div>
 
 
 <div *ngIf="product">
@@ -6,7 +6,8 @@
 
         <div class="miniRecipe ">
             <div class="foto">
-                <img [src]="product.file" class="card-img-top mt-3" style="border-bottom: 2px solid yellowgreen;" [alt]="product.name">
+                <img [src]="product.file" class="card-img-top mt-3" [alt]="product.name">
+                <app-star [rating]="5"></app-star>
             </div>
         </div>
 
@@ -22,7 +23,7 @@
                 </div>
                 <h4>METHOD:</h4>
                 <p>{{ product.count }}</p>
-
+                Recipe Author: {{ user?.name }}
 
             </div>
         </div>

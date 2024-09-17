@@ -149,7 +149,7 @@ nav ul li:hover {
     border: 0;
     border-radius: 5px 0 0 5px;
     font-size: 1rem;
-    border: 1px solid red;
+ 
 }
 
 .search-box button {
@@ -158,7 +158,7 @@ nav ul li:hover {
     border: 0;
     border-radius: 0 5px 5px 0;
     font-size: 1rem;
-    background: red;
+ 
     color: #fff;
     cursor: pointer;
 }
@@ -270,7 +270,7 @@ nav ul li:hover {
     width: 90%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     color: rgb(51, 113, 121);
 
 }
@@ -284,6 +284,8 @@ nav ul li:hover {
 
     overflow: hidden;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-bottom: 50px;
 }
 
 
@@ -314,15 +316,42 @@ transition-duration: .1s
 
 }
 
-recipe-card a {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    background: #333;
-    color: #fff;
-    padding: 15 0;
-}
+ .migtukas {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 5px 10px;
+     /* Reduce padding for narrower buttons */
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     background: #333;
+ }
 
+ .migtukas a,
+ .migtukas button {
+     width: 45%;
+     /* Narrower width for buttons */
+     text-align: center;
+     text-decoration: none;
+     color: #fff;
+     padding: 5px 0;
+     /* Adjust padding for narrower buttons */
+    
+     border: none;
+     cursor: pointer;
+ }
+
+ .migtukas button {
+     background-color: #d9534f;
+     /* Color for delete button */
+ }
+
+ .migtukas a:hover,
+ .migtukas button:hover {
+     opacity: 0.9;
+     color: rgb(241, 92, 117);
+ }
 
 footer {
     background: #333;

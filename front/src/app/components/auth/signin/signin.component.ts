@@ -13,7 +13,7 @@ import { ErrorService } from '../../../services/error.service';
   styleUrl: './signin.component.css'
 })
 export class SigninComponent {
-
+stra: string= 'assets/img/strawberry-berry-levitating-white-background.jpg';
  constructor (private authService:AuthService, private errorService:ErrorService){
 
   }

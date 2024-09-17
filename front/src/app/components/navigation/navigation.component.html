@@ -1,6 +1,6 @@
 <header class="container-navi">
     <a class="navbar-brand" routerLink="/">
-        <h1 class="logo">Delicous </h1>
+        <h1 class="logo">Delicous<span>&#9829;</span> </h1>
     </a>
 
     <nav>
@@ -30,8 +30,8 @@
                     SING UP
 
                 </a></li>
-            <li><a class="btn btn-success" routerLink="/auth/login" *ngIf="!isLoggedin">
-                    LOGIN
+            <li><a routerLink="/auth/login" *ngIf="!isLoggedin">
+                    LOG IN
 
                 </a></li>
 
@@ -53,7 +53,71 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <!--
+su suskleidimo funkcija
+
+
+<header class="container-navi">
+    <a class="navbar-brand" routerLink="/">
+        <h1 class="logo">Delicious&#9829;</h1>
+    </a>
+
+    <nav>
+        Checkboksas skirtas valdyti meniu atidarymą 
+        <input type="checkbox" id="menu-toggle">
+        <label class="menu-icon" for="menu-toggle">&#9776;</label>
+
+        <ul class="nav-list">
+            <li><a routerLink="/">HOME</a></li>
+            <li><a routerLink="/products/list">RECIPES</a></li>
+            <li><a aria-current="page" routerLink="/products/new">ADD RECIPE</a></li>
+            <li><a aria-current="page" routerLink="/meals/list"></a></li>
+            <li *ngIf="authService.canEdit()"><a aria-current="page" routerLink="/meals/new">ADD MEAL</a></li>
+            <li *ngIf="authService.canEditUsers()"><a routerLink="users/list">USERS LIST</a></li>
+            <li><a class="logOut" routerLink="/auth/signin" *ngIf="!isLoggedin">REGISTER</a></li>
+            <li><a class="logOut" routerLink="/auth/login" *ngIf="!isLoggedin">LOGIN</a></li>
+            <li><a class="profile" routerLink="/profile/main" *ngIf="isLoggedin">PROFILE</a></li>
+            <li><button class="logOut" (click)="logoutClick()" *ngIf="isLoggedin">LOG OUT</button></li>
+        </ul>
+    </nav>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
