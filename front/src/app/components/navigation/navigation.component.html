@@ -12,12 +12,15 @@
 
             <li><a routerLink="/products/list">RECIPES</a></li>
 
-            <li><a aria-current="page" routerLink="/products/new">ADD RECIPE</a></li>
+            <li><a aria-current="page" routerLink="/products/new" *ngIf="authService.canEdit()">ADD RECIPE</a></li>
             <li>
                 <a aria-current="page" routerLink="/meals/list"></a>
             </li>
             <li *ngIf="authService.canEdit()">
                 <a aria-current="page" routerLink="/meals/new">ADD MEAL</a>
+            </li>
+            <li *ngIf="authService.canEdit()">
+                <a aria-current="page" routerLink="about">ABOUT</a>
             </li>
 
 

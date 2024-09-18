@@ -1,23 +1,36 @@
-<div class="back" style="padding-top:100px;">
+<div class="back" style="margin-top:100px;">
     <div class="card mt-3">
         <div class="card-header" style="background-color: rgb(51, 113, 121);"><strong>ADD NEW RECIPE</strong></div>
         <div class="card-body">
             <form action="" [formGroup]="fileForm" (ngSubmit)="onSubmitForm()">
                 <div class="mb-3">
                     <label for="" class="form-label">RECIPE</label>
-                    <input type="text" class="form-control" name="name" value="" minlength="2" maxlength="64" required formControlName="name">
+
+                    <input [class.is-invalid]="!fileForm.get('name')?.valid && fileForm.get('name')?.touched && !fileForm.get('name')?.pending" formControlName="name" type="text" class="form-control" name="name" value="" minlength="2" maxlength="64" required formControlName="name">
+                    <div class="helper-block" *ngIf="!fileForm.get('name')?.valid && fileForm.get('name')?.touched && !fileForm.get('name')?.pending">
+                        *Recipe name is required!
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="meals_id" class="form-label">MEAL TYPE</label>
                     <select class="form-control" id="meals_id" name="meals_id" formControlName="meals_id">
-                        <option *ngFor="let meal of meals; let i = index" [value]="meal.id">{{ meal.name }}</option>
+                        <option *ngFor="let meal of meals; let i = index" [value]="meal.id">{{ meal.name }} required</option>
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">INGREDIENS</label>
-                    <input type="text" class="form-control" name="part" value="" formControlName="part">
+
+                    <textarea type="text" class="form-control" name="part" value="" formControlName="part" minlength="10" required [class.is-invalid]="!fileForm.get('part')?.valid && fileForm.get('part')?.touched && !fileForm.get('part')?.pending"></textarea>
+                    <div class="helper-block" *ngIf="!fileForm.get('part')?.valid && fileForm.get('part')?.touched && !fileForm.get('part')?.pending">
+                        *Recipe ingredients is required!
+                    </div>
                     <label for="" class="form-label">METHOD</label>
-                    <input type="text" class="form-control" name="count" value="" formControlName="count">
+
+                    <textarea type="text" class="form-control" name="count" value="" formControlName="count" minlength="10" required [class.is-invalid]="!fileForm.get('count')?.valid && fileForm.get('count')?.touched && !fileForm.get('count')?.pending"></textarea>
+                    <div class="helper-block" *ngIf="!fileForm.get('count')?.valid && fileForm.get('count')?.touched && !fileForm.get('count')?.pending">
+                        *Recipe ingredients is required!
+                    </div>
+
                 </div>
 
                 <div class="my-3">
@@ -28,7 +41,8 @@
                     <button class="btn btn-info" type="button" (click)="filePicker.click()">ADD FOTO</button>
                     <input type="file" name="file" class="d-none" #filePicker (change)="onFileChange($event)">
                 </div>
-                <button class="btn btn-success" style="background-color: rgb(51, 113, 121); margin-top:10px" type="submit">ADD</button>
+                <hr>
+                <button [disabled]="!fileForm.valid" class="btn btn-success" style="background-color: rgb(51, 113, 121); margin-top:10px" type="submit">ADD</button>
             </form>
 
         </div>

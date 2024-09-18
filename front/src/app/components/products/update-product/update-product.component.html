@@ -1,36 +1,37 @@
-<div class="back" style="padding-top:200px;"></div>
+<div class="back" style="margin-top:100px;"></div>
 <app-error [isError]="isError" [text]="errorText"></app-error>
 
 <div class="card mt-3">
-    <div class="card-header">Atnaujinti recepta</div>
+    <div class="card-header" style="background-color: rgb(51, 113, 121);">Update Recipe</div>
     <div class="card-body">
         <form [formGroup]="fileForm" (ngSubmit)="onSubmitForm()" #f="ngForm">
             <div class="mb-3">
-                <label for="" class="form-label">Pavadinimas</label>
+                <label for="" class="form-label">Recipe Name</label>
                 <input type="text" class="form-control" name="name" value="" ngModel formControlName="name">
             </div>
             <div class="mb-3">
-                <label for="meals_id" class="form-label">Patiekalo kategorija</label>
+                <label for="meals_id" class="form-label">Meal type</label>
                 <select class="form-control" id="meals_id" name="meals_id" formControlName="meals_id">
                     <option *ngFor="let meal of meals; let i = index" [value]="meal.id">{{ meal.name }}</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="" class="form-label">Sudetis</label>
+                <label for="" class="form-label">Ingredients</label>
                 <input type="text" class="form-control" name="part" value="" ngModel formControlName="part">
             </div>
             <div class="mb-3">
-                <label for="" class="form-label">Kiekis</label>
+                <label for="" class="form-label">Method</label>
                 <input type="text" class="form-control" name="count" value="" ngModel formControlName="count">
             </div>
             <div class="my-3">
                 <img [src]="filePreview" alt="">
             </div>
             <div>
-                <button class="btn btn-info" type="button" (click)="filePicker.click()">Įkelti failą</button>
+                <button class="btn btn-info" type="button" (click)="filePicker.click()">Add file</button>
                 <input type="file" name="file" class="d-none" #filePicker (change)="onFileChange($event)">
             </div>
-            <button class="btn btn-success" type="submit">Pridėti</button>
+            <hr>
+            <button class="btn btn-success" style="background-color: rgb(51, 113, 121);" type="submit">Add</button>
         </form>
 
     </div>

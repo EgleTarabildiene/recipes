@@ -1,31 +1,43 @@
-<div class="back"></div>
-<div class="row mt-3" style="padding: 100px; height: 100vh; display: flex; align-items: center;">
+<div class="row mt-3">
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header" style="background-color:rgb(42, 131, 109)">Register</div>
+            <div><strong>Register</strong></div>
             <div class="card-body">
                 <form (ngSubmit)="onRegister(f)" #f="ngForm">
                     <div class="mb-3">
                         <label class="form-label">Email</label>
-                        <input type="text" name="email" class="form-control" ngModel required maxlength="64" email>
+                        <input [class.is-invalid]="!inputEmail.valid && inputEmail.touched" ngModel required email #inputEmail="ngModel" type="text" name="email" class="form-control" ngModel required minlength="2" maxlength="64" email>
+                        <div class="helper-block " *ngIf="!inputEmail.valid && inputEmail.touched" [@errorBlock]>
+                            *Email is required
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">First Name</label>
-                        <input type="text" name="name" class="form-control" ngModel minlength="2" maxlength="64" pattern="[a-zA-Z]*">
+                        <input type="text" name="name" class="form-control" #inputName="ngModel" [class.is-invalid]="!inputName.valid && inputName.touched" ngModel minlength="2" required maxlength="64" pattern="[a-zA-Z]*">
+                        <div class=" helper-block " *ngIf=" !inputName.valid && inputName.touched" [@errorBlock]>
+                            *Name is required 2-32 simbols only letters!
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" ngModel>
+                        <input [class.is-invalid]="!inputPassword.valid && inputPassword.touched" #inputPassword="ngModel" type="text" class="form-control" required minlength="5" maxlength="12" password type="password" name="password" class="form-control" ngModel>
+                        <div class="helper-block " *ngIf="!inputPassword.valid && inputPassword.touched" [@errorBlock]>
+                            *Password 5-12 simbols
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Password Again</label>
                         <input type="password" name="" class="form-control">
                     </div>
-                    <button class="btn btn-success">Registruotis</button>
-                </form>
-                <div class="col-md-6 image-container">
-                    <img src="{{stra}}" alt="Background image" class="img-fluid">
-                </div>
-            </div>
 
+                    <button [disabled]="!f.valid" class="btn btn-success">Register</button>
+                    <div class="col-md-6 image-container">
+                        <img src="{{stra}}" alt="Background image" class="img-fluid" style=" display:flex;  float: right;">
+                    </div>
+
+                </form>
+
+            </div>
         </div>
+    </div>
+</div>

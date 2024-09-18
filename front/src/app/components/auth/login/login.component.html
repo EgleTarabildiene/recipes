@@ -1,20 +1,27 @@
 <div class="row mt-3" style="padding: 50px; background-size: cover; background-position: center; height: 100vh;">
-    <div class="col-md-6 offset-md-3">
-        <div class="card" style="border:none; ">
-            <div class="card-header" style="background-color:rgb(42, 131, 109)">Log in to your account</div>
+    <div class="col-md-6 offset-md-3" style="padding-top: 5px;">
+        <div class="card" style="padding: 10px 20px;">
+            <div><strong>Log in to your account</strong></div>
             <div class="card-body">
                 <form (ngSubmit)="onLogin(f)" #f="ngForm">
                     <div class="mb-3">
                         <label class="form-label">Email</label>
-                        <input type="text" name="email" class="form-control" ngModel required maxlength="64" email>
+
+                        <input [class.is-invalid]="!inputEmail.valid && inputEmail.touched" ngModel required email #inputEmail="ngModel" type="text" name="email" class="form-control" ngModel required minlength="2" maxlength="64" email>
+                        <div class="helper-block " *ngIf="!inputEmail.valid && inputEmail.touched" [@errorBlock]>
+                            *Email is required
+                        </div>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" ngModel>
+                        <input [class.is-invalid]="!inputPassword.valid && inputPassword.touched" #inputPassword="ngModel" type="text" class="form-control" required minlength="5" maxlength="12" password type="password" name="password" class="form-control" ngModel>
+                        <div class="helper-block " *ngIf="!inputPassword.valid && inputPassword.touched" [@errorBlock]>
+                            *Password 5-12 simbols
+                        </div>
                     </div>
 
-                    <button class="btn btn-success">LOG IN</button>
+                    <button [disabled]="!f.valid" class="btn btn-success">LOG IN</button>
                 </form>
                 <div class="col-md-6 image-container">
                     <img src="{{stra}}" alt="Background image" class="img-fluid">
@@ -22,3 +29,13 @@
             </div>
         </div>
     </div>
+
+
+
+    <!--<label for="" class="form-label">RECIPE</label>
+    
+    <input [class.is-invalid]="!fileForm.get('name')?.valid && fileForm.get('name')?.touched && !fileForm.get('name')?.pending" formControlName="name" type="text" class="form-control" name="name" value="" minlength="2" maxlength="64" required formControlName="name">
+    <div class="helper-block" *ngIf="!fileForm.get('name')?.valid && fileForm.get('name')?.touched && !fileForm.get('name')?.pending">
+        *Recipe name is required!
+    </div>
+-->

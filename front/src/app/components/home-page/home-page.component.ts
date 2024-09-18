@@ -21,6 +21,7 @@ fruit3: string = 'assets/img/fruit33.jpg'; // Path to your logo
 salad1: string = 'assets/img/salad1.jpg'; // Path to your logo
 salad2: string = 'assets/img/salad2.jpg'; // Path to your logo
 mexi:string = 'assets/img/MexicanChilliBeanSoup.jpg';
+foto:string = 'assets/img/Linfoto.jpg';
 pina:string = 'assets/img/Pina-500x500.jpg';
 bolonesa:string = 'assets/img/Vegan-lentil-bolognese-500x500.webp';
 kukul: string = 'assets/img/Jautienos kukuliai.webp';

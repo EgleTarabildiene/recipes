@@ -1,7 +1,7 @@
 <div class="back" style="padding-top:100px;"></div>
 <app-error [isError]="isError" [text]="errorText"></app-error>
 <div class="card mt-3">
-    <div class="card-header" style="background-color:rgb(42, 131, 109)">ADD NEW MEAL TYPE</div>
+    <div class="card-header" style="background-color:rgb(51, 113, 121)">ADD NEW MEAL TYPE</div>
     <div class="card-body">
         <form (ngSubmit)="mealSubmit(f)" #f="ngForm">
             <div class="mb-3">
@@ -10,7 +10,7 @@
             </div>
             <div *ngIf="!inputName.valid && inputName.touched">Įvestas blogas pavadinimas</div>
 
-            <button class="btn btn-success" type="submit">ADD</button>
+            <button class="btn" style="background-color:rgb(51, 113, 121);" type="submit">ADD</button>
         </form>
 
     </div>
