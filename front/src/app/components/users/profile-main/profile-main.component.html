@@ -1,46 +1,111 @@
-<div class="back" style="padding-top:50px;"></div>
-<div class="row">
-    <!-- Vartotojo informacija -->
-    <div class="col-md-3 mt-3">
-        <div class="card" style="margin-top:75px;">
-            <div class="card-header" style="background-color: rgb(51, 113, 121); text-align: center;">USER</div>
-            <div class="card-body">
-                <img [src]="user?.img" alt="" class="img-fluid">
-                <hr>
-                <div>
-                    Name: <b>{{ user?.name }}</b>
-                </div>
-                <div>
-                    Email: <b>{{ user?.email }}</b>
-                </div>
-            </div>
-            <a class="btn btn-success  mx-3 mb-3" style="background-color: rgb(51, 113, 121);" routerLink="/profile">
-                Edit
-            </a>
+<section class="userContainer ">
+
+    <div class="miniUser ">
+        <div class="userFoto">
+            <img [src]="user?.img" alt="">
+
         </div>
     </div>
 
-    <!-- Vartotojo sukurti produktai -->
-    <div class="col-md-7 mt-3">
-        <h2 class="mt-3" style="text-align: center;">MY RECIPES</h2>
-        <div class="row">
-            <div class="col-md-6 mt-3" *ngFor="let product of products">
-                <div class="card">
-                    <div class="card-header" style="background-color: rgb(51, 113, 121); text-align: center;">
-                        <strong>{{ product.name }}</strong>
-                    </div>
-                    <div class="card-body">
-                        <img [src]="product.file" alt="{{ product.name }}" class="img-thumbnail" style="width: 100%;">
-                        <div>{{ getMealName(product.meals_id) }}</div>
-                    </div>
-                    <div class="card-footer" *ngIf="authService.canViewData()">
-                        <div class="d-flex justify-content-between">
-                            <a style="background-color: rgb(51, 113, 121);" class="btn btn-success flex-fill me-1" [routerLink]="['/products', product.id]">EDIT</a>
-                            <button class="btn btn-danger flex-fill ms-1" (click)="deleteProduct(product.id!)">DELETE</button>
-                        </div>
-                    </div>
-                </div>
+
+    <div class="miniUser">
+        <div class="userText">
+
+            <div class="userSudetis">
+                <h2>User</h2>
+                <h6>Name: <strong>{{ user?.name }}</strong></h6>
+                <h6>Email: <strong>{{ user?.email }}</strong></h6>
+                <a class="btn btn-success" style="background-color: rgb(51, 113, 121);" routerLink="/profile">
+                    Edit
+                </a>
             </div>
+
         </div>
     </div>
+
+
+
+</section>
+
+<h1>MY RECIPES</h1>
+
+
+
+<div class="card" style=" border:none">
+    <div>
+
+    </div>
+    <div class="card-body" style="padding-bottom:100px;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Number</th>
+
+                    <th></th>
+
+                    <th>NAME</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products; let i=index;">
+                    <td>{{ i+1 }}</td>
+                    <td><img [src]="product.file" alt="" style="max-width: 100px;"></td>
+
+                    <td>{{ product.name }}</td>
+
+                    <td>
+                        <a class="btn btn-success mx-3" style="background-color: rgb(51, 113, 121);" [routerLink]="['/products', product.id]">EDIT</a>
+                        <a class="btn btn-danger" (click)="deleteProduct(product.id!)">DELETE</a>
+                    </td>
+
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
 </div>
+
+
+
+
+
+
+<!--
+<section class="recipeContainer  " *ngFor=" let product of products;let i=index; ">
+
+    <div class="miniRecipe">
+        <td>{{ i+1 }}</td>
+        <div class="foto">
+            <img [src]="product.file" alt="{{ product.name }}">
+
+        </div>
+    </div>
+
+
+    <div class="miniRecipe">
+        <div class="text">
+
+            <h2>Recipe</h2>
+            <div class="sudetis">
+                <h4>Name: {{ product.name }}</h4>
+                <h4>{{ getMealName(product.meals_id) }}</h4>
+            </div>
+
+
+
+        </div>
+        <div class="btn btn-success rinkynis" class="card-footer" *ngIf="authService.canViewData()"></div>
+        <a class="btn btn-success" style="background-color: rgb(51, 113, 121);" [routerLink]="['/products', product.id]">EDIT</a>
+        <button (click)="deleteProduct(product.id!)">DELETE</button>
+    </div>
+
+
+
+
+</section>
+<div class="dalis"></div>
+
+-->

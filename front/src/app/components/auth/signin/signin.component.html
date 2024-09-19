@@ -1,5 +1,6 @@
 <div class="row mt-3">
     <div class="col-md-6">
+
         <div class="card">
             <div><strong>Register</strong></div>
             <div class="card-body">
@@ -30,10 +31,11 @@
                         <input type="password" name="" class="form-control">
                     </div>
 
-                    <button [disabled]="!f.valid" class="btn btn-success">Register</button>
+                    <a routerLink="/auth/login"><button [disabled]="!f.valid" class="btn btn-success">Register</button></a>
                     <div class="col-md-6 image-container">
                         <img src="{{stra}}" alt="Background image" class="img-fluid" style=" display:flex;  float: right;">
                     </div>
+
 
                 </form>
 

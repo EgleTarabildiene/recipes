@@ -149,7 +149,7 @@ nav ul li:hover {
     border: 0;
     border-radius: 5px 0 0 5px;
     font-size: 1rem;
- 
+
 }
 
 .search-box button {
@@ -158,7 +158,7 @@ nav ul li:hover {
     border: 0;
     border-radius: 0 5px 5px 0;
     font-size: 1rem;
- 
+
     color: #fff;
     cursor: pointer;
 }
@@ -316,42 +316,42 @@ transition-duration: .1s
 
 }
 
- .migtukas {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     padding: 5px 10px;
-     /* Reduce padding for narrower buttons */
-     position: absolute;
-     bottom: 0;
-     width: 100%;
-     background: #333;
- }
+.migtukas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    /* Reduce padding for narrower buttons */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #333;
+}
 
- .migtukas a,
- .migtukas button {
-     width: 45%;
-     /* Narrower width for buttons */
-     text-align: center;
-     text-decoration: none;
-     color: #fff;
-     padding: 5px 0;
-     /* Adjust padding for narrower buttons */
-    
-     border: none;
-     cursor: pointer;
- }
+.migtukas a,
+.migtukas button {
+    width: 45%;
+    /* Narrower width for buttons */
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 0;
+    /* Adjust padding for narrower buttons */
 
- .migtukas button {
-     background-color: #d9534f;
-     /* Color for delete button */
- }
+    border: none;
+    cursor: pointer;
+}
 
- .migtukas a:hover,
- .migtukas button:hover {
-     opacity: 0.9;
-     color: rgb(241, 92, 117);
- }
+.migtukas button {
+    background-color: #d9534f;
+    /* Color for delete button */
+}
+
+.migtukas a:hover,
+.migtukas button:hover {
+    opacity: 0.9;
+    color: rgb(241, 92, 117);
+}
 
 footer {
     background: #333;
@@ -388,5 +388,82 @@ footer {
 
     .hero p {
         font-size: 15px;
+    }
+}
+
+button {
+    border: 1px solid #fff;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: white;
+    color: #005490;
+}
+
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(57, 57, 57, 0.528);
+    z-index: 1;
+    display: none;
+}
+
+
+.modalContent {
+    width: 50%;
+    background-color: #eee;
+    margin: 15% auto;
+    padding: 1.5rem;
+    position: relative;
+    text-align: center;
+    color: black;
+    animation: slide ease 0.8s;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateY(-30rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
+
+.close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.slide-up {
+    animation: slide-up ease 1s;
+}
+
+
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50rem);
     }
 }

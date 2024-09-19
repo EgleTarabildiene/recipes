@@ -12,8 +12,6 @@
 }
 
 
-
-
 .row::before {
     content: "";
     position: absolute;

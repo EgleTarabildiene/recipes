@@ -7,9 +7,11 @@
 
     <swiper-container autoplay-disable-on-interaction="false" loop="true" space-between="30" slides-per-view="3" pagination="true" pagination-clickable="true">
         <swiper-slide>
-            <img [src]="pyra" />
+            <a [routerLink]="['/products/list/recipe', 42]">
+                <img [src]="pyra" />
+            </a>
             <div class="text-overlay">
-                <h2 class="title">Apple and blackberry pie</h2>
+                <h2 class="title"> Apple and blackberry pie </h2>
                 <p class="subtitle">Sweet and Tasty</p>
             </div>
         </swiper-slide>
@@ -28,7 +30,9 @@
             </div>
         </swiper-slide>
         <swiper-slide>
-            <img [src]="pyra" />
+            <a [routerLink]="['/products/list/recipe', 42]">
+                <img [src]="pyra" />
+            </a>
             <div class="text-overlay">
                 <h2 class="title">Apple and blackberry pie</h2>
                 <p class="subtitle">Sweet and Tasty</p>
@@ -61,7 +65,12 @@
     <div class="miniDay">
 
         <div class="dayImg">
-            <div class="one"><img [src]="bolonesa" /></div>
+            <div class="one">
+                <a [routerLink]="['/products/list/recipe', 4]">
+                    <img [src]="bolonesa" /></a>
+
+
+            </div>
             <!-- Text below the image -->
             <p>Vegan lentil bolognese</p>
         </div>

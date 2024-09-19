@@ -1,3 +1,18 @@
+<button (click)=" openModel()">Test popout</button>
+
+<div class="modal" id="myModal">
+    <div class="modalContent">
+        <span (click)="closeModel()" class="close">&times;</span>
+        <h1>Do you realy want to delete</h1>
+        <hr>
+        <button (click)="closeModel()">Delete</button>
+
+
+    </div>
+</div>
+
+
+
 <section class="recipes">
     <h1>FEATURED RECIPES</h1>
     <div class="recipe-section">
@@ -19,20 +34,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 <div class="container my-5">
     <!-- Footer -->
     <footer class="text-center text-lg-start text-black" style="background-color: #f8f8f8">
-        <!-- Grid container -->
+        <!--   (click)="deleteProduct(product.id!)"                 Grid container -->
         <div class="container p-4 pb-0">
             <!-- Section: Links -->
             <section class="">
@@ -215,4 +220,66 @@
             </tr>
         </tbody>
     </table>
-</div>-->
+</div>                             
+
+
+
+
+
+
+modalas
+
+<section class="recipes">
+    <h1>FEATURED RECIPES</h1>
+    <div class="recipe-section">
+        <div class="recipe-card" *ngFor="let product of products; let i = index;">
+            <img [src]="product.file" alt="{{ product.name }}" [routerLink]="['recipe', product.id]" />
+            <app-star [rating]="5"></app-star>
+            <h2>{{ product.name }}</h2>
+            <p>{{ getMealName(product.meals_id) }}</p>
+            <div class="card-footer" *ngIf="authService.canEditUsers()">
+                <div class="migtukas">
+                    <a *ngIf="authService.canEdit()" [routerLink]="['/products', product.id]">Edit</a>
+                    <button data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+product.id">Delete</button>
+
+                    <div class="modal fade" [attr.id]="'exampleModal'+product.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Confirmation</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure to delete? <span>{{ product.name }}</span>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button (click)="deleteProduct(product.id!)" type="button" class="btn btn-danger">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->

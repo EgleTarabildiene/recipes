@@ -44,14 +44,14 @@ class AuthController {
             const [result] = yield connect_1.pool.query(sql, [email]);
             if (result.length != 1) {
                 return res.status(400).json({
-                    'text': 'Vartotojas su tokiu el. pašto adresu neegzistuoja'
+                    'text': 'User do not exist'
                 });
             }
             const user = result[0];
             let passwordOk = yield bcrypt_1.default.compare(password, user.password);
             if (!passwordOk) {
                 return res.status(400).json({
-                    'text': 'Įvestas neteisingas slaptažodis arba el. pašto adresas'
+                    'text': 'Bad emaiil or password'
                 });
             }
             if (process.env.TOKEN_SECRET != null) {

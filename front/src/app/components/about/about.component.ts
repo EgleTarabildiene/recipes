@@ -9,5 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 foto:string = 'assets/img/egle.jpg';
+qr1:string = 'assets/img/Untitled.svg';
+qr2:string = 'assets/img/Untitled(1).svg';
 fruit3: string = 'assets/img/fruit33.jpg';
 }

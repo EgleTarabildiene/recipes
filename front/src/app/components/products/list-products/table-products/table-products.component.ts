@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+ import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ProductsService } from '../../../../services/products.service';
 import { Product } from '../../../../models/product';
 import { CommonModule } from '@angular/common';
@@ -11,24 +11,34 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { StarComponent } from '../../../star/star.component';
 import { FilterProductsComponent } from '../filter-products/filter-products.component';
+import { ModalComponent } from '../../../modal/modal.component';
+import { HttpClient } from '@angular/common/http';
+declare var bootstrap: any;
+
+
 
 @Component({
   selector: 'app-table-products',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, FontAwesomeModule, StarComponent, FilterProductsComponent],
+  imports: [CommonModule, RouterLink, FormsModule, FontAwesomeModule, StarComponent, FilterProductsComponent, ModalComponent],
   templateUrl: './table-products.component.html',
   styleUrls: ['./table-products.component.css']
 })
 export class TableProductsComponent implements OnChanges {
-  
-    salad1: string = 'assets/img/salad1.jpg'; // Path to your logo
+
+    
+ 
+
+ 
+ 
+ salad1: string = 'assets/img/salad1.jpg'; // Path to your logo
   
   faCoffee = faCoffee;
   public meals:Meal[]=[];
     public mealId:String="";
 
  public products: Product[] = [];
-
+public selectedProduct: Product | null = null; //
 
 
     @Input() filterText: string = "";
@@ -62,19 +72,33 @@ export class TableProductsComponent implements OnChanges {
 
 
 
-  constructor(private productsService: ProductsService, public authService: AuthService, private mealsService:MealsService) {
+  constructor(private productsService: ProductsService, public authService: AuthService, private mealsService:MealsService, private http:HttpClient) {
     this.loadProducts();
     this.loadMeals();
   }
 
+  openModel(){
+    const modelDiv = document.getElementById('myModal');
+    if(modelDiv!=null) {
+      modelDiv.style.display ='block';
+        setTimeout(() => {
+        this.closeModel();
+      }, 5000);
+    }
+  }
 
-
-
+  closeModel(){
+    const modelDiv = document.getElementById('myModal');
+    if(modelDiv!=null) {
+      modelDiv.style.display ='none';
+    }
+  }
 
 
     ngOnChanges(changes: SimpleChanges): void {
     this.loadProducts();
   }
+
 
   public deleteProduct(id: number) {
     this.productsService.deleteProduct(id).subscribe(() => {
@@ -89,10 +113,5 @@ export class TableProductsComponent implements OnChanges {
         result= meal.name;
     });
     return result;
-  }
-
-
-  public filterByMeal() {
-    this.loadProducts();
   }
 }

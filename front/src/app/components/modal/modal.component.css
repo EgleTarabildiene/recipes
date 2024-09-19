@@ -1,0 +1,23 @@
+.modal {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    /* Aukštas z-index, kad būtų virš kitų elementų */
+}
+
+.modal-backdrop {
+    position: fixed;
+    bottom: 100px;
+    left: 100px;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fonas už modalo */
+    z-index: 1040;
+    /* Backdrop turi būti šiek tiek mažesnis nei modalas */
+}

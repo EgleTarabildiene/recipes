@@ -25,6 +25,7 @@ export class RecipeComponent implements OnInit {
     private productsService: ProductsService, private usersService: UsersService, private authService:AuthService
   ) {
      this.user=authService.user;
+     
   }
 
   ngOnInit(): void {

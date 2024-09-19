@@ -13,7 +13,7 @@ section.home {
     background-color: aliceblue;
     display: flex;
     align-items: center;
-    gap: 7rem;
+    gap: 5rem;
     padding: 30px 12% 0;
     position: relative;
 }
@@ -46,6 +46,10 @@ section.home {
 .home-content h5 span {
     font-size: 18px;
     margin-bottom: 1px;
+
+}
+.home-content img{
+   width: 300px;
 
 }
 
@@ -100,4 +104,16 @@ section.home {
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
+}
+
+.kodas{
+    width: 100%;
+        background-color: aliceblue;
+}
+
+.kodas img{
+    width: 250px;
+    height:250px;
+    background-color: aliceblue;
+    margin-bottom: 10px;
 }
