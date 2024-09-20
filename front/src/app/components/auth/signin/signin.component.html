@@ -1,3 +1,18 @@
+<div class="modal" id="registerModal">
+    <div class="modalContent">
+        <span (click)="closeModal()" class="close">&times;</span>
+        <h1>Congratulations on registering!</h1>
+        <p>You will be redirected to the login page in a few seconds...</p>
+        <hr>
+    </div>
+</div>
+
+
+
+
+
+
+
 <div class="row mt-3">
     <div class="col-md-6">
 
@@ -31,7 +46,7 @@
                         <input type="password" name="" class="form-control">
                     </div>
 
-                    <a routerLink="/auth/login"><button [disabled]="!f.valid" class="btn btn-success">Register</button></a>
+                    <a routerLink="/auth/login"><button class="btn-sucses" [disabled]="!f.valid" class="btn btn-success">Register</button></a>
                     <div class="col-md-6 image-container">
                         <img src="{{stra}}" alt="Background image" class="img-fluid" style=" display:flex;  float: right;">
                     </div>

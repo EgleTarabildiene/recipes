@@ -21,7 +21,7 @@ export class ErrorBlockComponent {
       //Po 3 sekundžių, paslėpiame automatiškai klaidos rodymą
       setTimeout(()=>{
         this.isError=false;
-      }, 10000);
+      }, 3000);
 
     })
 

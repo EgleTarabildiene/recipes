@@ -4,6 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { ErrorService } from '../../../services/error.service';
 import { ModalComponent } from '../../modal/modal.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,16 +15,42 @@ import { ModalComponent } from '../../modal/modal.component';
   styleUrl: './signin.component.css'
 })
 export class SigninComponent {
-  @ViewChild(ModalComponent) modal!: ModalComponent;
+   @ViewChild('registerModal') registerModal!: any;
  stra: string= 'assets/img/strawberry-2688_640.jpg';
 
-  constructor(private authService: AuthService, private errorService: ErrorService) {}
+  constructor(private authService: AuthService, private errorService: ErrorService, private router: Router) {}
 
-  public onRegister(f: NgForm) {
+
+ openModal() {
+    const modalDiv = document.getElementById('registerModal');
+    if (modalDiv != null) {
+      modalDiv.style.display = 'block';
+    }
+  }
+
+  closeModal() {
+    const modalDiv = document.getElementById('registerModal');
+    if (modalDiv != null) {
+      modalDiv.style.display = 'none';
+    }
+  }
+
+
+
+
+  onRegister(f: NgForm) {
     this.authService.registerUser(f.form.value).subscribe({
       next: (data) => {
-        console.log(data);
-       
+        console.log('Registration successful:', data);
+
+        // Open the modal to show success message
+        this.openModal();
+
+        // Redirect to login page after a delay (e.g., 3 seconds)
+        setTimeout(() => {
+          this.closeModal();
+          this.router.navigate(['/auth/login']);
+        }, 3000);  // 3-second delay
       },
       error: (error) => {
         this.errorService.errorEmitter.emit(error.error.text);

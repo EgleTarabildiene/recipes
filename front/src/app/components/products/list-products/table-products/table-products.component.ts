@@ -26,7 +26,7 @@ declare var bootstrap: any;
 })
 export class TableProductsComponent implements OnChanges {
 
-    
+    public selectedProductId: number | null = null;
  
 
  
@@ -77,23 +77,28 @@ public selectedProduct: Product | null = null; //
     this.loadMeals();
   }
 
-  openModel(){
-    const modelDiv = document.getElementById('myModal');
-    if(modelDiv!=null) {
-      modelDiv.style.display ='block';
-        setTimeout(() => {
-        this.closeModel();
-      }, 5000);
+  openDeleteModal(productId: number) {
+    this.selectedProductId = productId;
+    const deleteModal = document.getElementById('deleteModal');
+    if (deleteModal) {
+      deleteModal.style.display = 'block';
     }
   }
-
-  closeModel(){
-    const modelDiv = document.getElementById('myModal');
-    if(modelDiv!=null) {
-      modelDiv.style.display ='none';
+  closeDeleteModal() {
+    this.selectedProductId = null; // Reset the selected product ID
+    const deleteModal = document.getElementById('deleteModal');
+    if (deleteModal) {
+      deleteModal.style.display = 'none';
     }
   }
-
+confirmDelete() {
+    if (this.selectedProductId != null) {
+      this.productsService.deleteProduct(this.selectedProductId).subscribe(() => {
+        this.loadProducts(); // Reload the products list after deletion
+        this.closeDeleteModal(); // Close the modal after deletion
+      });
+    }
+  }
 
     ngOnChanges(changes: SimpleChanges): void {
     this.loadProducts();

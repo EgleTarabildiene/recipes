@@ -28,7 +28,7 @@ class AuthController {
             const [result] = yield connect_1.pool.query(sql, [email]);
             if (result.length != 0) {
                 return res.status(400).json({
-                    'text': "Vartotojas su tokiu el. pašto adresu yra registruotas"
+                    'text': "User has already registered with this email address"
                 });
             }
             sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
@@ -44,14 +44,14 @@ class AuthController {
             const [result] = yield connect_1.pool.query(sql, [email]);
             if (result.length != 1) {
                 return res.status(400).json({
-                    'text': 'User do not exist'
+                    'text': '"User does not exist"'
                 });
             }
             const user = result[0];
             let passwordOk = yield bcrypt_1.default.compare(password, user.password);
             if (!passwordOk) {
                 return res.status(400).json({
-                    'text': 'Bad emaiil or password'
+                    'text': '"Invalid Email or Password"'
                 });
             }
             if (process.env.TOKEN_SECRET != null) {

@@ -68,9 +68,6 @@
         color: rgb(51, 113, 121);
             
 }
-.userContainer button {
-width: 100px;
-}
 
 
 
@@ -142,7 +139,9 @@ h1 {
    
   
 
-
+button{
+padding: 15px;;
+}
 
 
 

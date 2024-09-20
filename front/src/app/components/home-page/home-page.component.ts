@@ -31,6 +31,7 @@ pyra: string= 'assets/img/pyragas-gervuogiu.webp';
 herby: string= 'assets/img/Herby-lentil-salad-500x446.webp';
 chicken: string= 'assets/img/BrownStewChicken.webp';
 keksas: string= 'assets/img/Keksas-500x500.webp.';
+tofu: string= 'assets/img/Tofu.webp.';
 avokado: string= 'assets/img/HFG-IMAGES-600-x-450-px-27-500x500.webp.';
   constructor (private authService:AuthService, public productsService:ProductsService){
     this.user=authService.user;
